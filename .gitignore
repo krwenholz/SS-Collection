@@ -34,6 +34,7 @@ nosetests.xml
 .project
 .pydevproject
 
-
+# Specific files for the project
 *.swp
 .DS_Store
+venv/*
