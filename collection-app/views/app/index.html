@@ -25,13 +25,15 @@
   <!-- Primary Page Layout
   ================================================== -->
   <div class="container">
-    <h1>{_room.welcome}</h1>
     <div class="twelve columns">
-    <p><label>Welcome message: <input value="{_room.welcome}"></label></p>
+      <h1>{_room.welcome}</h1>
+      <p><label>Welcome message: <input value="{_room.welcome}"></label></p>
     </div>
-    <!-- Other templates are referenced like HTML elements -->
-    <p>This page has been visited {_room.visits} times. <app:timer></p>
-    <p>Let's go <a href="/{{randomUrl}}">somewhere random</a>.</p>
+    <div class="twelve columns">
+      <!-- Other templates are referenced like HTML elements -->
+      <p>This page has been visited {_room.visits} times. <app:timer></p>
+      <p>Let's go <a href="/{{randomUrl}}">somewhere random</a>.</p>
+    </div>
   </div><!-- container -->
   
 <timer:>
