@@ -1,0 +1,25 @@
+<Body:>
+  <div class="container">
+    <div class="sixteen columns">
+      <ul>
+        {{#each bins}}
+        <li>{{this['title']}}</li>
+        <ul>
+          {{#each this['floors']}}
+          <li>{{this['title'}}</li>
+          <ul>
+            {{#each this['locations']}}
+            <li>{{this['title']}}</li>
+            <ul>
+              {{#each this['bins']}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+            {{/each}}
+          </ul>
+          {{/each}}
+        </ul>
+        {{/each}}
+      </ul>
+    </div>
+  </div>

@@ -13,32 +13,26 @@
   are capitalized by convention, but template names are case-insensitive.
   Pre-defined templates are automatically included when the page is rendered.
 -->
-
+<import: src="./buildings">
+<import: src="./home">
 <Title:>
-  {{roomName}} - {_room.visits} visits
+  Sustainability Services: SUBHEADING FROM MODEL HERE
 
 <Header:>
   <!-- This is a component defined in the /ui directory -->
   <ui:connectionAlert>
-
-<Body:>
-  <!-- Primary Page Layout
-  ================================================== -->
   <div class="container">
-    <div class="twelve columns">
-      <h1>{_room.welcome}</h1>
-      <p><label>Welcome message: <input value="{_room.welcome}"></label></p>
+    <div class="sixteen columns">
+      <h3>This is an awesome header.</h3>
+      <hr/>
     </div>
-    <div class="twelve columns">
-      <!-- Other templates are referenced like HTML elements -->
-      <p>This page has been visited {_room.visits} times. <app:timer></p>
-      <p>Let's go <a href="/{{randomUrl}}">somewhere random</a>.</p>
+  </div>
+
+<Footer:>
+  <div class="container">
+    <div class="sixteen columns">
+      <hr/>
+      <h3>An awesome footer lives here.</h3>
     </div>
-  </div><!-- container -->
-  
-<timer:>
-  {#if _stopped}
-    <a x-bind="click:start">Start timer</a>
-  {else}
-    You have been here for {_timer} seconds. <a x-bind="click:stop">Stop</a>
-  {/}
+  </div>
+
