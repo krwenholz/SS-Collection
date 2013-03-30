@@ -39,12 +39,12 @@ get('/', function(page, model, params) {
 //  })
 })
 
-// A route for the buildings view
+// A route for the building select view
 get('/buildings', function(page, model, params) {
     page.render('list-building', { bins: bins, page_name: 'Buildings'} );
 })
 
-// A route for the buildings view
+// A route for the floors/locations in a building
 get('/buildings-:building?', function(page, model, params) {
     var building = params.building;
     building || (building = 'null');
@@ -56,31 +56,50 @@ get('/buildings-:building?', function(page, model, params) {
         }
     }
 
-    page.render('list-location', 
-        { bins: buildingBins, page_name: 'Locations for '+buildingBins['title']} );
+    page.render('list-floor', 
+        { building: buildingBins, 
+            page_name: 'Locations for '+buildingBins['title']} );
 })
 
-// A route for the locations view
-get('/buildings-:building?/location-:loc?', function(page, model, params) {
+// View the bins at a location
+get('/buildings-:building?/floor-:floor?/location-:loc?', 
+        function(page, model, params) {
     var buildName = params.building;
     buildName || (buildName = 'null');
     
-    var locName = params.locName;
+    var floorName = params.floor;
+    floorName || (floorName = 'null');
+ 
+    var locName = params.loc;
     locName || (locName = 'null');
 
-    var locBins = null;
+    var loc = null;
     for (build in bins){
-        if (bins[build]['title']==building) {
-            buildingBins = bins[build];
+        // for every building
+        if (bins[build]['title']==buildName) {
+            for (fl in bins[build]['floors']) {
+                // for every floor
+                console.log(floorName + "      "+bins[build]['floors'][fl]['title']);
+                if (bins[build]['floors'][fl]['title'] == floorName) {
+                    for(ll in bins[build]['floors'][fl]['locations']) {
+                        console.log("UHUAH");
+                        // for every location
+                        if(bins[build]['floors'][fl]['locations'][ll]['title']
+                            == locName) {
+                            loc = bins[build]['floors'][fl]['locations'][ll];
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 
-    console.log(buildingBins);
-    page.render('list-location', 
-        { building : buildName, loc : locBins, 
-            page_name: 'Bins for '+buildName+' at '+locBins['title']});
+    page.render('list-floor', 
+        { building : buildName, floor : floorName, locBins: loc, 
+            page_name: 'bins for '+buildName+' in '+floorName+' at '+
+            loc['title']});
 })
-
 
 
 // CONTROLLER FUNCTIONS //
@@ -110,33 +129,33 @@ ready(function(model) {
 })
 
 // LOGIC CODE //
-bins = [{title: 'WSC', 
-                floors: [{title:'Basement', locations:[
-                            {title:'Shipping/Receiving', bins:[
+bins = [{'title': 'WSC', 
+                floors: [{'title':'Basement', locations:[
+                            {'title':'Shipping-Receiving', bins:[
                                 'Toter','Glass','Cardboard']}, 
-                            {title:'Mail Room', bins:[
+                            {'title':'Mail Room', bins:[
                                 'Toter', 'Cardboard']},
-                            {title:'Cellar', bins:[
+                            {'title':'Cellar', bins:[
                                 'Toter 1', 'Toter 2']}]},
-                         {title:'1st Floor', locations:[
-                             {title:'Diversions', bins:[
+                         {'title':'1st Floor', locations:[
+                             {'title':'Diversions', bins:[
                                  'Toter']}]},
-                         {title:'2nd Floor', locations:[
-                             {title:'Elevator', bins:[
+                         {'title':'2nd Floor', locations:[
+                             {'title':'Elevator', bins:[
                                  'Toter', 'Glass']},
-                             {title:'ASUPS', bins:[
+                             {'title':'ASUPS', bins:[
                                  'Toter']}]}]},
-        {title: 'Jones',
-                  floors: [{title:'Basement', locations:[
-                              {title:'Recycling Station', bins:[
+        {'title': 'Jones',
+                  floors: [{'title':'Basement', locations:[
+                              {'title':'Recycling Station', bins:[
                                   'Toter 1', 'Toter 2', 'Toter 3',
                                   'Toter 4', 'Cardboard', 'Glass', ]}]},
-                           {title:'1st Floor', locations:[
-                               {title:'Staff Kitchennette', bins:[
+                           {'title':'1st Floor', locations:[
+                               {'title':'Staff Kitchennette', bins:[
                                    'Glass']}]},
-                           {title:'2nd Floor', locations:[
-                               {title:'Hallway-North', bins:[
+                           {'title':'2nd Floor', locations:[
+                               {'title':'Hallway-North', bins:[
                                    'Toter 1', 'Toter 2']},
-                               {title:'Hallway-South', bins:[
+                               {'title':'Hallway-South', bins:[
                                    'Toter 1', 'Glass']}]}]}
 ]

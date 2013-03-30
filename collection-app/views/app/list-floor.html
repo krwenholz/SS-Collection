@@ -1,0 +1,19 @@
+<Body:>
+  <div class="container">
+    <div class="sixteen columns">
+      <h3>{building.title}</h3>
+      <ul>
+        {#each building['floors'] as :floor}
+        <li>{title}
+          <ul>
+            {#each this['locations']}
+            <li><a href="buildings-{building.title}/floor-{{:floor.title}}/location-{title}">
+                Bins in {this['title']}</a></li>
+            {/each}
+          </ul>
+        </li>
+        {/each}
+      </ul>
+    </div>
+  </div>
+
