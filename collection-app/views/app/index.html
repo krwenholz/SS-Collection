@@ -13,17 +13,24 @@
   are capitalized by convention, but template names are case-insensitive.
   Pre-defined templates are automatically included when the page is rendered.
 -->
-<import: src="./buildings">
+
 <import: src="./home">
+<import: src="./buildings">
+<import: src="./locations">
+
+<Head:>
+  <!-- actual header stuff-->
+  <link rel="shortcut icon" href="/img/favicon.ico"> 
+
 <Title:>
-  Sustainability Services: SUBHEADING FROM MODEL HERE
+  Recycling Collection: {page_name}
 
 <Header:>
-  <!-- This is a component defined in the /ui directory -->
+  <!-- a header on our page -->
   <ui:connectionAlert>
   <div class="container">
     <div class="sixteen columns">
-      <h3>This is an awesome header.</h3>
+      <h4>This is an awesome header that should have some nice navigation stuff.</h4>
       <hr/>
     </div>
   </div>
@@ -32,7 +39,8 @@
   <div class="container">
     <div class="sixteen columns">
       <hr/>
-      <h3>An awesome footer lives here.</h3>
+      <h4>An awesome footer lives here with maybe some attribution stuff or 
+        such.</h4>
     </div>
   </div>
 
