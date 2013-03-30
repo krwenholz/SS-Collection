@@ -79,10 +79,8 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         if (bins[build]['title']==buildName) {
             for (fl in bins[build]['floors']) {
                 // for every floor
-                console.log(floorName + "      "+bins[build]['floors'][fl]['title']);
                 if (bins[build]['floors'][fl]['title'] == floorName) {
                     for(ll in bins[build]['floors'][fl]['locations']) {
-                        console.log("UHUAH");
                         // for every location
                         if(bins[build]['floors'][fl]['locations'][ll]['title']
                             == locName) {
