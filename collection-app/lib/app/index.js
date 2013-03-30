@@ -50,10 +50,12 @@ get('/locations/:building?', function(page, model, params) {
     building || (building = 'null');
 
     var buildingBins = null;
-    for (let build in bins){
-        
+    for (build in bins){
+        if (build['title']==building) {
+            buildingBins = build;
+        }
     }
-    page.render('locations', { bins: bins[building], page_name: 'Locations'} );
+    page.render('locations', { bins: build, page_name: 'Locations'} );
 })
 
 
@@ -114,4 +116,4 @@ bins = [{title: 'WSC',
                                    'Toter 1', 'Toter 2']},
                                {title:'Hallway-South', bins:[
                                    'Toter 1', 'Glass']}]}]}
-}
+]
