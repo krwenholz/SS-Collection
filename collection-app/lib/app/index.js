@@ -41,21 +41,44 @@ get('/', function(page, model, params) {
 
 // A route for the buildings view
 get('/buildings', function(page, model, params) {
-    page.render('buildings', { bins: bins, page_name: 'Buildings'} );
+    page.render('list-building', { bins: bins, page_name: 'Buildings'} );
 })
 
-// A route for the locations view
-get('/locations/:building?', function(page, model, params) {
-    var building = params.roomName;
+// A route for the buildings view
+get('/buildings-:building?', function(page, model, params) {
+    var building = params.building;
     building || (building = 'null');
 
     var buildingBins = null;
     for (build in bins){
-        if (build['title']==building) {
-            buildingBins = build;
+        if (bins[build]['title']==building) {
+            buildingBins = bins[build];
         }
     }
-    page.render('locations', { bins: build, page_name: 'Locations'} );
+
+    page.render('list-location', 
+        { bins: buildingBins, page_name: 'Locations for '+buildingBins['title']} );
+})
+
+// A route for the locations view
+get('/buildings-:building?/location-:loc?', function(page, model, params) {
+    var buildName = params.building;
+    buildName || (buildName = 'null');
+    
+    var locName = params.locName;
+    locName || (locName = 'null');
+
+    var locBins = null;
+    for (build in bins){
+        if (bins[build]['title']==building) {
+            buildingBins = bins[build];
+        }
+    }
+
+    console.log(buildingBins);
+    page.render('list-location', 
+        { building : buildName, loc : locBins, 
+            page_name: 'Bins for '+buildName+' at '+locBins['title']});
 })
 
 

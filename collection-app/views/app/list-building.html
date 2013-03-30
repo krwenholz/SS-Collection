@@ -1,0 +1,11 @@
+<Body:>
+  <div class="container">
+    <div class="sixteen columns">
+      <ul>
+        {{#each bins}}
+          <li><a href="buildings-{{this['title']}}">
+            Log for {{this['title']}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>

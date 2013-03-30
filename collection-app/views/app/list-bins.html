@@ -1,0 +1,13 @@
+<Body:>
+  <div class="container">
+    <div class="sixteen columns">
+      <h3>Bins for {building} at {loc['title']}</h3>
+      <ul>
+        {#each loc['bins']}
+          <li><a href="locations/buildings{this}">
+            See the bins at {this}</a></li>
+        {/each}
+      </ul>
+    </div>
+  </div>
+

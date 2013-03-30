@@ -4,8 +4,10 @@
       <h3>{bins['title']}</h3>
       <ul>
         {#each bins['floors']}
-          <li><a href="locations/buildings{this['title']}</li>
+          <li><a href="buildings-{building}building/locations-{this['title']}">
+            See the bins at {this['title']}</a></li>
         {/each}
       </ul>
     </div>
   </div>
+
