@@ -7,6 +7,19 @@ var derby = require('derby')
 
 derby.use(require('../../ui'))
 
+//Example query motif to get the last time a bin was emptied
+//THIS ISN'T A WORKING EXAMPLE AT THIS POINT. JUST ILLUSTRATING HOW WE MIGHT BUILD OUR QUERIES
+
+/*store.query.expose('list-floor', 'lastEmptied', function (bin) { //Expose query syntax: .expose(namespace, motifName, fn) 
+	return this
+		.where('binID').equals(bin) //Get only the bin you're interested in
+		.sort('emptyDates','desc') //Sort the results in descending order by the dates it was emptied
+		.limit(1); //Only get the last time it was emptied
+});*/
+
+//We could now call this query in the app by doing something like this:
+/*var lastEmptied = model.query('list-floor').lastEmptied(1234);*/
+
 
 // ROUTES //
 
