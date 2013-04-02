@@ -82,11 +82,29 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
             }
         }
     }
-
-    page.render('list-bins', 
-        { building : buildName, floor : floorName, locBins: loc, 
-            page_name: 'bins for '+buildName+' in '+floorName+' at '+
-            loc['title']});
+	
+	model.subscribe('bins.' + buildName + '.' + floorName + '.' 
+                    + loc["title"], function(err, curLoc){
+		model.ref('_bins', curLoc);
+		var activityArr = [];
+		loc['bins'].forEach(function(){
+			var binName = this;
+			var curTime = new Date();
+			var binObj = {'bName':binName, 
+                          'activity':[{'time':curTime, 'activity': 'not-full'}]};
+			activityArr.unshift(binObj);
+		});
+		
+		curLoc.setNull('bins', activityArr);
+        console.log("HEYYYYYYYYYYYYYYYYYYYYYYY!");
+		page.render('list-bins', 
+                    { building : buildName, 
+                      floor : floorName, 
+                      locBins: loc, 
+                      page_name: 'bins for '+buildName+' in '+floorName+' at '+
+                        loc['title']});
+	});
+	
 
   // Subscribes the model to any updates on this room's object. 
 //  model.subscribe('rooms.' + roomName, function(err, room) {
