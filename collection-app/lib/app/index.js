@@ -85,18 +85,26 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
 	
 	model.subscribe('bins.' + buildName + '.' + floorName + '.' 
                     + loc["title"], function(err, curLoc){
-		model.ref('_bins', curLoc);
-		var activityArr = [];
-		loc['bins'].forEach(function(){
-			var binName = this;
-			var curTime = new Date();
-			var binObj = {'bName':binName, 
-                          'activity':[{'time':curTime, 'activity': 'not-full'}]};
-			activityArr.unshift(binObj);
-		});
+		model.ref('_bins', curLoc)
 		
-		curLoc.setNull('bins', activityArr);
-        console.log("HEYYYYYYYYYYYYYYYYYYYYYYY!");
+		//curLoc.setNull('bins', activityArr);
+        console.log("curLoc.setNull is valued at "+curLoc.bins)
+        if (curLoc.bins == null || curLoc.bins == undefined) {
+            var activityArr = []
+            loc['bins'].forEach(function(){
+                var binName = this;
+                var curTime = new Date();
+                var binObj = {'bName':binName, 
+                              'activity':[{'time':curTime, 'activity': 'not-full'}]};
+                activityArr.unshift(binObj)
+		    });
+            curLoc.set('bins', 1)
+            console.log("set the previously null bins")
+        }
+
+        console.log("curLoc.bins is valued at "+curLoc.bins)
+        curLoc.set('me', 4)
+        console.log("MEEE: "+curLoc.me)
 		page.render('list-bins', 
                     { building : buildName, 
                       floor : floorName, 

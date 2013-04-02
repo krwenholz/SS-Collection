@@ -1,0 +1,10 @@
+Master pid 1131
+info: socket.io started
+1133 listening. Go to: http://localhost:3000/
+[37mMon Apr 01 2013 21:05:07 GMT-0700 (PDT)[0m [37m(1133)[0m [33m00428e07-2f14-4fe5-81b3-bb1fe4a70df1[0m [1m[34m↩[0m[0m Connect
+[37mMon Apr 01 2013 21:05:07 GMT-0700 (PDT)[0m [37m(1133)[0m [33m00428e07-2f14-4fe5-81b3-bb1fe4a70df1[0m [1m[36m↪[0m[0m Asking client to request a snapshot update of new transactions
+[37mMon Apr 01 2013 21:05:07 GMT-0700 (PDT)[0m [37m(1133)[0m [33m00428e07-2f14-4fe5-81b3-bb1fe4a70df1[0m [1m[34m↩[0m[0m Derby app with hash StCLPAcnUU09sP7AfgwIPA
+[37mMon Apr 01 2013 21:05:09 GMT-0700 (PDT)[0m [37m(1133)[0m [33m00428e07-2f14-4fe5-81b3-bb1fe4a70df1[0m [1m[34m↩[0m[0m [34msubscribe [0m[32m'bins.Jones.Basement.Recycling Station'[0m
+[37mMon Apr 01 2013 21:05:15 GMT-0700 (PDT)[0m [37m(1133)[0m [33m00428e07-2f14-4fe5-81b3-bb1fe4a70df1[0m [1m[34m↩[0m[0m Disconnect
+404: /buildings-Jones/floor-Basement/buildings-Jones/floor-Basement/buildings-Jones/floor-Basement/location-Recycling%20Station
+404: /buildings-Jones/floor-Basement/buildings-Jones/floor-Basement/location-Recycling%20Station
