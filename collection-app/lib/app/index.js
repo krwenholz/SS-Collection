@@ -83,15 +83,12 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         }
     }
 
-    console.log(loc);
     page.render('list-bins', 
         { building : buildName, floor : floorName, locBins: loc, 
             page_name: 'bins for '+buildName+' in '+floorName+' at '+
             loc['title']});
 
-  // Subscribes the model to any updates on this room's object. Calls back
-  // with a scoped model equivalent to:
-  //   room = model.at('rooms.' + roomName)
+  // Subscribes the model to any updates on this room's object. 
 //  model.subscribe('rooms.' + roomName, function(err, room) {
 //    model.ref('_room', room)
 //

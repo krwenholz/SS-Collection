@@ -3,8 +3,8 @@
     <div class="sixteen columns">
       <h3>Bins for {building} in {floor} at {locBins['title']}</h3>
       <ul>
-        {#each locBins['bins']}
-          <li>{this}</li>
+        {#each _bins.bins}
+          <li>{this.activity[0]}</li>
         {/each}
       </ul>
     </div>
