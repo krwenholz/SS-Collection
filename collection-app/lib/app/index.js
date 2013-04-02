@@ -90,26 +90,22 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         // Need underscore to keep it private for ref
     	model.ref('_bins', curLoc);
     	
-    	//curLoc.setNull('bins', binActivity);
-        console.log("curLoc.setNull is valued at "+curLoc.bins);
-        console.log("path is for curLoc: "+curLoc.path());
-        if (curLoc.get(pathName) == null || curLoc.get(pathName) == undefined) {
-            var binActivity = [];
-            loc['bins'].forEach(function(){
-                var binName = this;
-                var curTime = new Date();
-                var binObj = {'bName':binName, 
-                              'activity':[{'time':curTime, 'activity': 'not-full'}]};
-                binActivity.unshift(binObj);
-    	    });
-            
-            console.log("about to push data on for the first time!");
-            curLoc.set(pathName, binActivity[0]['activity']);
-                //binActivity[0].bName);
-            console.log("set the previously null bins");
-        }
+        var binActivity = [];
+        var basicBins = loc['bins'].map(function(){
+            return {'bName': this, 
+                    'activity':[{'time': (new Date()), 'activity': 'not-full'}]};
+        });
 
-        console.log("curLoc.bins is valued at "+curLoc.get(pathName)[0]['time']);
+        // TODO: need to loop this set for everything in basicBins and add to 
+        // path name on each set
+        
+        // TODO: change up the templating in list-bins to utilize the cool display
+        // stuff
+        
+        // Sets the value if it hasn't already been defined (should only happen on
+        // first run)
+        curLoc.setNull(pathName, basicBins[0]['activity']);
+
 		page.render('list-bins', 
                     { building : buildName, 
                       floor : floorName, 
