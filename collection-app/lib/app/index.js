@@ -83,30 +83,33 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         }
     }
 	
+
+    // Here comes the magic for our persistence and data sharing
     var pathName = buildName +'.'+ floorName +'.'+ loc['title'];
     model.subscribe('bins.' + pathName, function(err, curLoc){
         // Need underscore to keep it private for ref
     	model.ref('_bins', curLoc);
     	
-    	//curLoc.setNull('bins', activityArr);
+    	//curLoc.setNull('bins', binActivity);
         console.log("curLoc.setNull is valued at "+curLoc.bins);
+        console.log("path is for curLoc: "+curLoc.path());
         if (curLoc.get(pathName) == null || curLoc.get(pathName) == undefined) {
-            var activityArr = [];
-            console.log(loc['bins']);
+            var binActivity = [];
             loc['bins'].forEach(function(){
                 var binName = this;
                 var curTime = new Date();
                 var binObj = {'bName':binName, 
                               'activity':[{'time':curTime, 'activity': 'not-full'}]};
-                activityArr.unshift(binObj);
+                binActivity.unshift(binObj);
     	    });
             
-            curLoc.push(pathName, activityArr);
-            console.log("curLoc.bins is valued at "+model.get(pathName));
+            console.log("about to push data on for the first time!");
+            curLoc.set(pathName, binActivity[0]['activity']);
+                //binActivity[0].bName);
             console.log("set the previously null bins");
         }
 
-        console.log("curLoc.bins is valued at "+curLoc['pathName']);
+        console.log("curLoc.bins is valued at "+curLoc.get(pathName)[0]['time']);
 		page.render('list-bins', 
                     { building : buildName, 
                       floor : floorName, 
