@@ -89,17 +89,16 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
 		loc['bins'].forEach(function(){
 			var binName = this;
 			var curTime = new Date();
-			var binObj = {"bName":binName, activity:["time":curTime, "activity": "not-full"]}
+			var binObj = {'bName':binName, activity:[{'time':curTime, 'activity': 'not-full'}]};
 			activityArr.unshift(binObj);
 		});
 		
 		curLoc.setNull('bins', activityArr);
-	});
-	
-    page.render('list-bins', 
+		page.render('list-bins', 
         { building : buildName, floor : floorName, locBins: loc, 
             page_name: 'bins for '+buildName+' in '+floorName+' at '+
             loc['title']});
+	});
 	
 
   // Subscribes the model to any updates on this room's object. Calls back
