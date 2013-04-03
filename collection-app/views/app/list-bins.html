@@ -23,22 +23,26 @@
   </script>
 
 <Body:>
-  <div class="container">
     <div class="sixteen columns">
       <h3>Bins for {buildingName} in {floorName} at {locationName}</h3>
-      <ul>
+      <div class="row">
         {#each binNames as :bName}
-          <app:binStatus>
+          {#with _bins[buildingName][floorName][locationName][:bName]}
+          <div class="four columns well">
+            <!-- FIXME: Something strange is happening with how 'this' isn't what
+            it should be after the first batch of new data, but it works as desired
+            -->
+            {:bName} was last {this['activity']}
+          <ul class="button_group">
+            <li><a class="btn btn-large btn-success" 
+              x-bind="click: emptiedBin"> Empty {:bName}</a></li>
+            <li><a class="btn btn-large btn-warning"
+              x-bind="click: fullBin">{:bName} is full</a></li>
+            <li><a class="btn btn-large btn-info"
+              x-bind="click: notFullBin">{:bName} is not full</a></li>
+          </ul>
+          </div>
+          {/with}
         {/each}
-      </ul>
+      </div>
     </div>
-  </div>
-
-<binStatus:>
-  {#with _bins[buildingName][floorName][locationName][:bName]}
-    {this[0]['activity']}
-    {#if this[0]['activity']}
-      {this[0]['activity']}
-    {else}
-    {/if}
-  {/with}

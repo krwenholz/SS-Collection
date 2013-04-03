@@ -86,6 +86,7 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
 
     // Here comes the magic for our persistence and data sharing
     var pathName = buildName +'.'+ floorName +'.'+ loc['title'];
+    model.set('pathName', pathName);
     model.subscribe('bins.' + pathName, function(err, curLoc){
         // Need underscore to keep it private for ref
     	model.ref('_bins', curLoc);
@@ -113,36 +114,40 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
                       page_name: 'bins for '+buildName+' in '+floorName+' at '+
                         loc['title']});
 	});
-	
-
-  // Subscribes the model to any updates on this room's object. 
-//  model.subscribe('rooms.' + roomName, function(err, room) {
-//    model.ref('_room', room)
-//
-//    // setNull will set a value if the object is currently null or undefined
-//    room.setNull('welcome', 'Welcome to ' + roomName + '!')
-//
-//    room.incr('visits')
-//
-//    // This value is set for when the page initially renders
-//    model.set('_timer', '0.0')
-//    // Reset the counter when visiting a new route client-side
-//    start = +new Date()
-//
-//    // Render will use the model data as well as an optional context object
-//    page.render({
-//      bins: bins
-//    , roomName: roomName
-//    , randomUrl: parseInt(Math.random() * 1e9).toString(36)
-//    })
-//  })
-
 })
 
 
 // CONTROLLER FUNCTIONS //
 
 ready(function(model) {
+
+    // "emptied"s a bin by adding a new event to the activity history
+    exports.emptiedBin = function(e, el, next) {
+        // Grab context nearest to this bin
+        bin = model.at(el);
+        // Add a new entry for the now emptied bin
+        var theTime = new Date();
+        model.unshift(bin.path(), {'time': theTime, 'activity': 'emptied'});
+    }
+
+    // "full"s a bin by adding a new event to the activity history
+    exports.fullBin= function(e, el, next) {
+        // Grab context nearest to this bin
+        bin = model.at(el);
+        // Add a new entry for the now emptied bin
+        var theTime = new Date();
+        model.unshift(bin.path(), {'time': theTime, 'activity': 'full'});
+    }
+
+    // "not-full"s a bin by adding a new event to the activity history
+    exports.notFullBin= function(e, el, next) {
+        // Grab context nearest to this bin
+        bin = model.at(el);
+        // Add a new entry for the now emptied bin
+        var theTime = new Date();
+        model.unshift(bin.path(), {'time': theTime, 'activity': 'not-full'});
+    }
+
 
     // EXAMPLES FROM OLD CODE
 //  var timer
