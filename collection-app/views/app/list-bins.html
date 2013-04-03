@@ -1,13 +1,44 @@
+<Head:>
+  <script type="text/javascript">
+    // Helper for if a bin is not full.
+    Handlebars.registerHelper('isNotFull', function(binState, options) { 
+        if(binState == 'not-full') {
+            return options.fn(this);
+        }
+    });
+    
+    // Helper for if a bin is full.
+    Handlebars.registerHelper('isFull', function(binState, options) { 
+        if(binState == 'full') {
+            return options.fn(this);
+        }
+    });
+    
+    // Helper for if a bin is emptied.
+    Handlebars.registerHelper('isEmptied', function(binState, options) { 
+        if(binState == 'emptied') {
+            return options.fn(this);
+        }
+    });
+  </script>
+
 <Body:>
   <div class="container">
     <div class="sixteen columns">
       <h3>Bins for {buildingName} in {floorName} at {locationName}</h3>
-      <h1>{_bins.Toter}</h1>
       <ul>
-        {#each _bins}
-          <li>{this}</li>
+        {#each binNames as :bName}
+          <app:binStatus>
         {/each}
       </ul>
     </div>
   </div>
 
+<binStatus:>
+  {#with _bins[buildingName][floorName][locationName][:bName]}
+    {this[0]['activity']}
+    {#if this[0]['activity']}
+      {this[0]['activity']}
+    {else}
+    {/if}
+  {/with}

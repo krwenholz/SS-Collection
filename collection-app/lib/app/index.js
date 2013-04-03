@@ -90,22 +90,19 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         // Need underscore to keep it private for ref
     	model.ref('_bins', curLoc);
     	
+        // Now define the default bin states. Bins take on values of 'not-full',
+        // 'full', and 'emptied'.
         var binActivity = [];
         var basicBins = loc['bins'].map(function(binName){
+            var theTime = new Date();
             return {'bName': binName, 
-                    'activity':[{'time': (new Date()), 'activity': 'not-full'}]};
+                    'activity':[{'time': theTime, 'activity': 'not-full'}]};
         });
 
-        // TODO: need to loop this set for everything in basicBins and add to 
-        // path name on each set
-        
-        // TODO: change up the templating in list-bins to utilize the cool display
-        // stuff
-        
         // Sets the value if it hasn't already been defined (should only happen on
         // first run)
         basicBins.forEach(function(oneBin) {
-            curLoc.setNull(pathName + '.' + oneBin['bName'], oneBin['activity']);
+            curLoc.setNull(pathName +'.'+ oneBin['bName'], oneBin['activity']);
         });
 
         page.render('list-bins', 
@@ -170,6 +167,7 @@ ready(function(model) {
 })
 
 // LOGIC CODE //
+
 bins = [{'title': 'WSC', 
                 floors: [{'title':'Basement', locations:[
                             {'title':'Shipping-Receiving', bins:[
