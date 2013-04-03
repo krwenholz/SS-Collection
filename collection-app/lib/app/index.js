@@ -91,8 +91,8 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
     	model.ref('_bins', curLoc);
     	
         var binActivity = [];
-        var basicBins = loc['bins'].map(function(){
-            return {'bName': this, 
+        var basicBins = loc['bins'].map(function(binName){
+            return {'bName': binName, 
                     'activity':[{'time': (new Date()), 'activity': 'not-full'}]};
         });
 
@@ -104,12 +104,15 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         
         // Sets the value if it hasn't already been defined (should only happen on
         // first run)
-        curLoc.setNull(pathName, basicBins[0]['activity']);
+        basicBins.forEach(function(oneBin) {
+            curLoc.setNull(pathName + '.' + oneBin['bName'], oneBin['activity']);
+        });
 
-		page.render('list-bins', 
-                    { building : buildName, 
-                      floor : floorName, 
-                      locBins: loc, 
+        page.render('list-bins', 
+                    { buildingName : buildName, 
+                      floorName : floorName, 
+                      locationName: loc['title'],
+                      binNames: loc['bins'], 
                       page_name: 'bins for '+buildName+' in '+floorName+' at '+
                         loc['title']});
 	});
