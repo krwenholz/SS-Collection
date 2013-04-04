@@ -126,8 +126,7 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        var listLevel = bin.parent();
-        listLevel.unshift({'time': theTime, 'activity': 'emptied'});
+        bin.unshift({'time': theTime, 'activity': 'emptied'});
     }
 
     // "full"s a bin by adding a new event to the activity history
@@ -136,8 +135,7 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        var listLevel = bin.parent();
-        listLevel.unshift(bin.path(), {'time': theTime, 'activity': 'full'});
+        bin.unshift({'time': theTime, 'activity': 'full'});
     }
 
     // "not-full"s a bin by adding a new event to the activity history
@@ -146,8 +144,7 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        var listLevel = bin.parent();
-        listLevel.unshift(bin.path(), {'time': theTime, 'activity': 'not-full'});
+        bin.unshift({'time': theTime, 'activity': 'not-full'});
     }
 
 
