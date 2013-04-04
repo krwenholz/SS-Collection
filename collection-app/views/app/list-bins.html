@@ -27,13 +27,13 @@
       <h3>Bins for {buildingName} in {floorName} at {locationName}</h3>
       <div class="row">
         {#each binNames as :bName}
-          {#with _bins[:bName]}
+          {#with _bins[:bName][0]}
           <div class="four columns well">
             <!-- FIXME: Something strange is happening with how 'this' isn't what
             it should be after the first batch of new data, but it works as desired
             -->
-            {:bName} was last {this['activity']}{this[0]['activity']}
-          <ul class="button_group">
+            {:bName} was last {this['activity']}
+            <ul class="button_group">
             <li><a class="btn btn-large btn-success" 
               x-bind="click: emptiedBin"> Empty {:bName}</a></li>
             <li><a class="btn btn-large btn-warning"

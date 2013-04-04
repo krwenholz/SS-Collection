@@ -84,6 +84,7 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
     }
 	
 
+    // TODO: Need to fix this shit to use a database for bin names and such
     // Here comes the magic for our persistence and data sharing
     var pathName = buildName +'.'+ floorName +'.'+ loc['title'];
     model.subscribe('bins.' + pathName, function(err, curLoc){
@@ -92,7 +93,6 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
     	
         // Now define the default bin states. Bins take on values of 'not-full',
         // 'full', and 'emptied'.
-        var binActivity = [];
         var basicBins = loc['bins'].map(function(binName){
             var theTime = new Date();
             return {'bName': binName, 
@@ -120,16 +120,14 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
 
 ready(function(model) {
 
-    // TODO: The models and such are getting doubly nested in strange ways
-
     // "emptied"s a bin by adding a new event to the activity history
     exports.emptiedBin = function(e, el, next) {
         // Grab context nearest to this bin
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        console.log(bin.path());
-        bin.unshift({'time': theTime, 'activity': 'emptied'});
+        var listLevel = bin.parent();
+        listLevel.unshift({'time': theTime, 'activity': 'emptied'});
     }
 
     // "full"s a bin by adding a new event to the activity history
@@ -138,7 +136,8 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        model.unshift(bin.path(), {'time': theTime, 'activity': 'full'});
+        var listLevel = bin.parent();
+        listLevel.unshift(bin.path(), {'time': theTime, 'activity': 'full'});
     }
 
     // "not-full"s a bin by adding a new event to the activity history
@@ -147,7 +146,8 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        model.unshift(bin.path(), {'time': theTime, 'activity': 'not-full'});
+        var listLevel = bin.parent();
+        listLevel.unshift(bin.path(), {'time': theTime, 'activity': 'not-full'});
     }
 
 
