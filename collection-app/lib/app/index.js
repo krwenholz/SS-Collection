@@ -86,7 +86,6 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
 
     // Here comes the magic for our persistence and data sharing
     var pathName = buildName +'.'+ floorName +'.'+ loc['title'];
-    model.set('pathName', pathName);
     model.subscribe('bins.' + pathName, function(err, curLoc){
         // Need underscore to keep it private for ref
     	model.ref('_bins', curLoc);
@@ -103,7 +102,7 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         // Sets the value if it hasn't already been defined (should only happen on
         // first run)
         basicBins.forEach(function(oneBin) {
-            curLoc.setNull(pathName +'.'+ oneBin['bName'], oneBin['activity']);
+            curLoc.setNull(oneBin['bName'], oneBin['activity']);
         });
 
         page.render('list-bins', 
@@ -121,13 +120,16 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
 
 ready(function(model) {
 
+    // TODO: The models and such are getting doubly nested in strange ways
+
     // "emptied"s a bin by adding a new event to the activity history
     exports.emptiedBin = function(e, el, next) {
         // Grab context nearest to this bin
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        model.unshift(bin.path(), {'time': theTime, 'activity': 'emptied'});
+        console.log(bin.path());
+        bin.unshift({'time': theTime, 'activity': 'emptied'});
     }
 
     // "full"s a bin by adding a new event to the activity history
