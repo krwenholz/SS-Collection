@@ -1,27 +1,3 @@
-<Head:>
-  <script type="text/javascript">
-    // Helper for if a bin is not full.
-    Handlebars.registerHelper('isNotFull', function(binState, options) { 
-        if(binState == 'not-full') {
-            return options.fn(this);
-        }
-    });
-    
-    // Helper for if a bin is full.
-    Handlebars.registerHelper('isFull', function(binState, options) { 
-        if(binState == 'full') {
-            return options.fn(this);
-        }
-    });
-    
-    // Helper for if a bin is emptied.
-    Handlebars.registerHelper('isEmptied', function(binState, options) { 
-        if(binState == 'emptied') {
-            return options.fn(this);
-        }
-    });
-  </script>
-
 <Body:>
     <div class="sixteen columns">
       <h3>Bins for {buildingName} in {floorName} at {locationName}</h3>
@@ -32,14 +8,14 @@
             <!-- FIXME: Something strange is happening with how 'this' isn't what
             it should be after the first batch of new data, but it works as desired
             -->
-            {:bName} was last {this[0]['activity']}.
+            {:bName} was last {{this[0]['activity']}}.
             <ul class="button_group">
             <li><a class="btn btn-large btn-success" 
-              x-bind="click: emptiedBin"> Empty {:bName}</a></li>
+              x-bind="click: emptiedBin"> Empty {{:bName}}</a></li>
             <li><a class="btn btn-large btn-warning"
-              x-bind="click: fullBin">{:bName} is full</a></li>
+              x-bind="click: fullBin">{{:bName}} is full</a></li>
             <li><a class="btn btn-large btn-info"
-              x-bind="click: notFullBin">{:bName} is not full</a></li>
+              x-bind="click: notFullBin">{{:bName}} is not full</a></li>
           </ul>
           </div>
           {/with}
