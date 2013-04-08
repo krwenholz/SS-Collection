@@ -25,13 +25,21 @@ derby.use(require('../../ui'))
 
 // Derby routes can be rendered on the client and the server
 get('/', function(page, model, params) {
-
   page.render('home', {page_name: 'Get Started'})
 })
 
 // A route for the building select view
 get('/buildings', function(page, model, params) {
-    page.render('list-building', { bins: bins, page_name: 'Buildings'} );
+    model.subscribe('bins.*', function(err, builds) {
+        model.ref('_buildings', builds);
+        console.log('about to print buildings');
+        model.set('buildIds', ['Jones', 'WSC']);
+        console.log('trying refList stuff');
+        console.log(model.get('_buildings'));
+        model.refList('_buildingIds', 'bins', 'buildIds');
+        console.log(model.get('_buildingIds'));
+        page.render('list-building', { bins: bins, page_name: 'Buildings'} );
+    });
 })
 
 // A route for the floors/locations in a building
