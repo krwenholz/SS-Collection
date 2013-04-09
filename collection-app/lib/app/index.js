@@ -36,7 +36,7 @@ get('/buildings', function(page, model, params) {
         model.set('buildIds', ['Jones', 'WSC']);
         console.log('trying refList stuff');
         console.log(model.get('_buildings'));
-        model.refList('_buildingIds', 'bins', 'buildIds');
+        model.refList('_buildingIds', '_buildings', 'buildIds');
         console.log(model.get('_buildingIds'));
         page.render('list-building', { bins: bins, page_name: 'Buildings'} );
     });
