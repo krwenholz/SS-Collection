@@ -10,13 +10,17 @@
             -->
             {{:bName}} was last {{this[0]['activity']}}.
             <ul class="button_group">
-            <li><a class="btn btn-large btn-success" 
-              x-bind="click: emptiedBin"> Empty {{:bName}}</a></li>
-            <li><a class="btn btn-large btn-warning"
-              x-bind="click: fullBin">{{:bName}} is full</a></li>
-            <li><a class="btn btn-large btn-info"
-              x-bind="click: notFullBin">{{:bName}} is not full</a></li>
+            <a class="btn btn-bin btn-bin-emptied" 
+              x-bind="click: emptiedBin"> Empty {{:bName}}</a>
+            <a class="btn btn-bin btn-bin-full"
+              x-bind="click: fullBin">{{:bName}} is full</a>
+            <a class="btn btn-bin btn-bn-notfull"
+              x-bind="click: notFullBin">{{:bName}} is not full</a>
           </ul>
+          </br>
+          Last Status: {{this[0]['activity']}}.
+          </br>
+          </br>
           </div>
           {/with}
         {/each}
