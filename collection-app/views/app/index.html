@@ -21,8 +21,12 @@
 
 <Head:>
   <!-- actual header stuff-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/img/favicon.ico">
   <link href='http://fonts.googleapis.com/css?family=Dosis:400,700|Ubuntu:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='/flat-ui/css/bootstrap.css' type='text/css' media='all' />
+  <link rel='stylesheet' href='/flat-ui/css/flat-ui.css' type='text/css' media='all' />
+
 
 <Title:>
   Recycling Collection: {page_name}
@@ -33,13 +37,33 @@
   <div class="container">
     <div class="sixteen columns">
       <h1>Sustainability Services Collection Log</h1>
-	  <nav>
-	    <ul>
-      <li><a href="/" class="btn home">Home</a></li>
-		  <li><a href="/buildings" class="btn build">Buildings</a></li>
-	    </ul>
-	  </nav>
-      <hr/>
+	  <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+              <div>
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div class="nav-collapse collapse">
+                  <ul class="nav">
+                    <li>
+                      <a href="/">Home
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/buildings">Buildings</a>
+                       <!-- /Sub menu -->
+                    </li>
+                    <li>
+                      <a href="#">Bin Status List
+                      </a>
+                    </li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </div>
+          </div>
     </div>
 
 <Footer:>

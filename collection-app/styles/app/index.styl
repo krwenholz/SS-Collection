@@ -1,8 +1,21 @@
 @import "../base";
 
 .binbuttons {
-    background: #CCCCCC;
-    //background: url(/img/rockywall.png);
+    background: #ddd;
+    border:1px solid #aaa;
+    margin-bottom:4px !important;
+}
+.binbuttons p {
+    margin:5px 0 0 10px;
+}
+.binbuttons p strong {
+    margin-left:5px;
+}
+.binbuttons p span.icon {
+    color:#8E44AD;
+}
+ul.button_group {
+    margin:10px
 }
 nav ul { margin-bottom:0; }
 nav ul li { 
@@ -28,21 +41,17 @@ nav ul li a.build:before {
     position:relative; 
     top:1px; 
 }
-a.start { 
-    padding:10px; 
-    border-radius:18px; 
+a.start {
+    padding:10px;
+    text-decoration:none;
     font-size:30px; 
-    text-decoration:none; 
     margin:0 auto; 
     display:block; 
     width:225px; 
     line-height:45px; 
 }
-a.start:before { 
-    content:url(/img/pen.png); 
-    margin-right:3px; 
-    position:relative; 
-    top:5px; 
+a.start span {
+    margin-right:5px;
 }
 
 .well {
@@ -74,115 +83,13 @@ a.start:before {
   border-radius: 3px;
 }
 
-ul.button_group {
-    margin-bottom: -20px;
-}
-
 @css {
-
-/* Links */
-
-a{
-  color: #007099;
-}
-a:visited{
-  color: #255C66;
-}
-
-/* Nav Bar */
-
-
-
-/* Buttons */
-.btn {
-  border: none;
-  background: #007099;
-  color: #000;
-  font-size: 16.5px;
-  text-decoration: none;
-  text-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  -o-transition: 0.25s;
-  transition: 0.25s;
-  -webkit-backface-visibility: hidden;
-}
-
-a.btn{
-  color: #000;
-}
-
-.btn:hover, .btn:focus{
-  background-color: #255C66;
-  color: white;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  -o-transition: 0.25s;
-  transition: 0.25s;
-  -webkit-backface-visibility: hidden;
-}
-
-.btn:active, .btn.active {
-  background-color: #2c3e50;
-  color: rgba(255, 255, 255, 0.75);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-
-.btn.disabled, .btn[disabled] {
-  background-color: #95a5a6;
-  color: white; 
-}
-
-.btn.btn-large {
-  padding-bottom: 12px;
-  padding-top: 13px;
-}
-
-/** Home Buttons **/
-.btn-block {
-  display: block;
-  width: 100%;
-  padding-right: 0;
-  padding-left: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-
-
-/** Bin Buttons **/
-
-.btn.btn-bin {
-  padding:10px; 
-  font-size:1em; 
-  text-decoration:none; 
-  margin:0 auto; 
-  display:block; 
-  line-height:45px; 
-}
-
-.btn.btn-bin-emptied{
-  background-color: #442B2C;
-}
-
-.btn.btn-bin-full{
-  background-color: #255C66;
-}
-
-.btn.btn-bin-notfull{
-  background-color: #007099;
-}
-
-.btn.btn-bin:hover, .btn.btn-bin:focus {
-  background-color: #4A4833;
-}
-.btn.btn-bin:active, .btn.btn-bin.active {
-  background-color: #dc2d1b;
+/* Flat UI Stuff Here  */
+.container{
+background:#ecf0f1;
+border-radius:10px;
+margin:40px auto;
+padding:10px;
 }
 
 }
