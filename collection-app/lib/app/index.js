@@ -31,9 +31,20 @@ get('/', function(page, model, params) {
 // A route for the building select view
 get('/buildings', function(page, model, params) {
     console.log("About to print buildings");
-    buildings = model.query("bin_def").forBuilding("WSC");
-    model.subscribe('bins.*', buildings, function(err, builds, builds1) {
+    buildings = model.query("bin_def").forBuilding('WSC');
+    uniqueBuilds = model.query('bin_def').uniqueBuildings();
+    model.subscribe('bins.*', buildings, uniqueBuilds, function(err, builds, builds1, builds2) {
+       console.log('WSC building results:');
         console.log(builds1.get());
+        console.log('Unique building results:');
+        allBuildings = builds2.get();
+        buildingNames = Array();
+        for(var i=0; i<allBuildings.length; i++){
+            if(buildingNames.indexOf(allBuildings[i].Building) < 0){
+                buildingNames.push(allBuildings[i].Building);
+            }
+        }
+        console.log(buildingNames);
 //        model.ref('_buildings', builds);
 //        console.log('about to print buildings');
 //        model.set('buildIds', ['Jones', 'WSC']);
@@ -41,7 +52,7 @@ get('/buildings', function(page, model, params) {
 //        console.log(model.get('_buildings'));
 //        model.refList('_buildingIds', '_buildings', 'buildIds');
 //        console.log(model.get('_buildingIds'));
-        page.render('list-building', { bins: bins, page_name: 'Buildings'} );
+        page.render('list-building', { buildings: buildingNames, page_name: 'Buildings'} );
     });
 })
 
