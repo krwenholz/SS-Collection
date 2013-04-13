@@ -1,0 +1,1634 @@
+[
+    {
+        "Building": "WSC",
+        "Desctription": "Toter",
+        "Floor": "Basement",
+        "Location": "Shipping/Receiving"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Shipping/Receiving"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Cardboard",
+        "Floor": "Basement",
+        "Location": "Shipping/Receiving"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Toter",
+        "Floor": "Basement",
+        "Location": "Mail Room"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Cardboard",
+        "Floor": "Basement",
+        "Location": "Mail Room"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Toter 1",
+        "Floor": "Basement",
+        "Location": "Cellar"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Toter 2",
+        "Floor": "Basement",
+        "Location": "Cellar"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Toter ",
+        "Floor": "1st Floor",
+        "Location": "Diversions"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor",
+        "Location": "Elevator"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Elevator"
+    },
+    {
+        "Building": "WSC",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor",
+        "Location": "ASUPS "
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Toter 1",
+        "Floor": "Basement",
+        "Location": "Recycling Station"
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Toter 2",
+        "Floor": "Basement",
+        "Location": "Recycling Station"
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Toter 3",
+        "Floor": "Basement",
+        "Location": "Recycling Station"
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Toter 4",
+        "Floor": "Basement",
+        "Location": "Recycling Station"
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Cardboard",
+        "Floor": "Basement",
+        "Location": "Recycling Station"
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Recycling Station"
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Staff Kitchennette"
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Toter 1",
+        "Floor": "2nd Floor",
+        "Location": "Hallway- North "
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Toter 2",
+        "Floor": "2nd Floor",
+        "Location": "Hallway- North "
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Toter 1",
+        "Floor": "2nd Floor",
+        "Location": "Hallway- South "
+    },
+    {
+        "Building": "Jones",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Hallway- South "
+    },
+    {
+        "Building": "Howarth ",
+        "Desctription": "Toter",
+        "Floor": "Basement",
+        "Location": "Hallway"
+    },
+    {
+        "Building": "Howarth ",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Hallway"
+    },
+    {
+        "Building": "Howarth ",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Elevator Alcove"
+    },
+    {
+        "Building": "Howarth ",
+        "Desctription": "Glass ",
+        "Floor": "1st Floor",
+        "Location": "Elevator Alcove"
+    },
+    {
+        "Building": "Howarth ",
+        "Desctription": "Toter ",
+        "Floor": "2nd Floor ",
+        "Location": "Elevator Alcove"
+    },
+    {
+        "Building": "Howarth ",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor ",
+        "Location": "Elevator Alcove"
+    },
+    {
+        "Building": "Howarth ",
+        "Desctription": "Toter",
+        "Floor": "3rd Floor",
+        "Location": "East Stairwell"
+    },
+    {
+        "Building": "McIntyre ",
+        "Desctription": "Toter",
+        "Floor": "Basement",
+        "Location": "Central Stairwell"
+    },
+    {
+        "Building": "McIntyre ",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Central Stairwell"
+    },
+    {
+        "Building": "McIntyre ",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Vending Maching"
+    },
+    {
+        "Building": "McIntyre ",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Vending Maching"
+    },
+    {
+        "Building": "McIntyre ",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor ",
+        "Location": "Central Stairwell"
+    },
+    {
+        "Building": "McIntyre ",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor ",
+        "Location": "Central Stairwell"
+    },
+    {
+        "Building": "McIntyre ",
+        "Desctription": "Toter",
+        "Floor": "3rd Floor",
+        "Location": "Central Hallway"
+    },
+    {
+        "Building": "McIntyre ",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Central Hallway"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Toter",
+        "Floor": "Basement",
+        "Location": "Break Zone"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Break Zone"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Toter",
+        "Floor": "Basement",
+        "Location": "Microfilms"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Toter",
+        "Floor": "Basement",
+        "Location": "Technology Services"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Styrofoam",
+        "Floor": "Basement",
+        "Location": "Technology Services"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Main Entrance"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Main Entrance"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Northern Elevator"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Northern Elevator"
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Toter 1",
+        "Floor": "1st Floor",
+        "Location": "Bindary "
+    },
+    {
+        "Building": "Library",
+        "Desctription": "Toter 2",
+        "Floor": "1st Floor",
+        "Location": "Bindary "
+    },
+    {
+        "Building": "Music",
+        "Desctription": "Toter ",
+        "Floor": "Basement",
+        "Location": "Locker Area"
+    },
+    {
+        "Building": "Music",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Locker Area"
+    },
+    {
+        "Building": "Music",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Room # 104"
+    },
+    {
+        "Building": "Music",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor ",
+        "Location": "Hallway- South "
+    },
+    {
+        "Building": "Music",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor ",
+        "Location": "Hallway- South "
+    },
+    {
+        "Building": "Music",
+        "Desctription": "Barrel",
+        "Floor": "3rd Floor",
+        "Location": "Hallway- South "
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Cardboard",
+        "Floor": "1st Floor",
+        "Location": "Loading Dock"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter 1",
+        "Floor": "1st Floor",
+        "Location": "Oppenheimer"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter 2",
+        "Floor": "1st Floor",
+        "Location": "Oppenheimer"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass 1",
+        "Floor": "1st Floor",
+        "Location": "Oppenheimer"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass 2",
+        "Floor": "1st Floor",
+        "Location": "Oppenheimer"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "SE Corner "
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "SE Corner "
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Cardboard",
+        "Floor": "1st Floor",
+        "Location": "SE Corner "
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "SW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "SW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter ",
+        "Floor": "1st Floor",
+        "Location": "NW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "NW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter Glass",
+        "Floor": "1st Floor",
+        "Location": "NE Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor",
+        "Location": "SE Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "SE Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor",
+        "Location": "SW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "SW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter ",
+        "Floor": "2nd Floor",
+        "Location": "NW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "NW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter Glass",
+        "Floor": "2nd Floor",
+        "Location": "NE Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter",
+        "Floor": "3rd Floor",
+        "Location": "SE Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "SE Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter",
+        "Floor": "3rd Floor",
+        "Location": "SW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "SW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter ",
+        "Floor": "3rd Floor",
+        "Location": "NW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "NW Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter Glass",
+        "Floor": "3rd Floor",
+        "Location": "NE Corner"
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Toter",
+        "Floor": "4th Floor",
+        "Location": "Hallway- Central "
+    },
+    {
+        "Building": "Thompson/Harned ",
+        "Desctription": "Glass",
+        "Floor": "4th Floor",
+        "Location": "Hallway- Central "
+    },
+    {
+        "Building": "Wyatt",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Hallway- Central "
+    },
+    {
+        "Building": "Wyatt",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Hallway- Central "
+    },
+    {
+        "Building": "Wyatt",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor",
+        "Location": "Hallway- Central "
+    },
+    {
+        "Building": "Wyatt",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Hallway- Central "
+    },
+    {
+        "Building": "Wyatt",
+        "Desctription": "Toter",
+        "Floor": "3rd Floor",
+        "Location": "Hallway- Central "
+    },
+    {
+        "Building": "Wyatt",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Hallway- Central "
+    },
+    {
+        "Building": "Warner Gym ",
+        "Desctription": "Toter",
+        "Floor": "Outside",
+        "Location": "North Entrance"
+    },
+    {
+        "Building": "Warner Gym ",
+        "Desctription": "Glass",
+        "Floor": "Outside",
+        "Location": "North Entrance"
+    },
+    {
+        "Building": "Baker Stadium",
+        "Desctription": "Toter 1",
+        "Floor": "Outside",
+        "Location": "East End of Bleachers"
+    },
+    {
+        "Building": "Baker Stadium",
+        "Desctription": "Toter 2",
+        "Floor": "Outside",
+        "Location": "East End of Bleachers"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Tennis Annex"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Fitness Center"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Fitness Center"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Main Entrance- East"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Main Entrance- East"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Main Entrance- West"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Main Entrance- West"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "Concession Stand"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Concession Stand"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter 1",
+        "Floor": "2nd Floor",
+        "Location": "West Hallway"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter 2",
+        "Floor": "2nd Floor",
+        "Location": "West Hallway"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "West Hallway"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor",
+        "Location": "East Hallway- South "
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "East Hallway- South "
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Toter",
+        "Floor": "2nd Floor",
+        "Location": "East Hallway- North"
+    },
+    {
+        "Building": "Fieldhouse",
+        "Desctription": "Glass ",
+        "Floor": "2nd Floor",
+        "Location": "East Hallway- North"
+    },
+    {
+        "Building": "Weyerhauser",
+        "Desctription": "Toter ",
+        "Floor": "3rd floor",
+        "Location": "Under stairway"
+    },
+    {
+        "Building": "Weyerhauser",
+        "Desctription": "Glass ",
+        "Floor": "3rd floor",
+        "Location": "Under stairway"
+    },
+    {
+        "Building": "Langlow",
+        "Desctription": "Toter ",
+        "Floor": "Outside",
+        "Location": "Parking lot by basement stairwell"
+    },
+    {
+        "Building": "Langlow",
+        "Desctription": "Glass ",
+        "Floor": "Outside",
+        "Location": "Parking lot by basement stairwell"
+    },
+    {
+        "Building": "Kittredge ",
+        "Desctription": "Toter ",
+        "Floor": "Outside",
+        "Location": "East Entrance"
+    },
+    {
+        "Building": "Kittredge ",
+        "Desctription": "Toter 2",
+        "Floor": "Outside",
+        "Location": "East Entrance"
+    },
+    {
+        "Building": "Expeditionary",
+        "Desctription": "Toter ",
+        "Floor": "Outside",
+        "Location": "NW Entrance"
+    },
+    {
+        "Building": "Expeditionary",
+        "Desctription": "Glass",
+        "Floor": "Outside",
+        "Location": "NW Entrance"
+    },
+    {
+        "Building": "Communications 1",
+        "Desctription": "Toter ",
+        "Floor": "Outside",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Communications 1",
+        "Desctription": "Glass ",
+        "Floor": "Outside",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Communications 2",
+        "Desctription": "Toter ",
+        "Floor": "Outside",
+        "Location": "NW Entrance"
+    },
+    {
+        "Building": "Communications 2",
+        "Desctription": "Toter 2",
+        "Floor": "Outside",
+        "Location": "NW Entrance"
+    },
+    {
+        "Building": "Communications 2",
+        "Desctription": "Glass",
+        "Floor": "Outside",
+        "Location": "NW Entrance"
+    },
+    {
+        "Building": "C.I.A.C.",
+        "Desctription": "Toter",
+        "Floor": "Outside",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "C.I.A.C.",
+        "Desctription": "Glass",
+        "Floor": "Outside",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Student Div.",
+        "Desctription": "Toter",
+        "Floor": "Outside",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Student Div.",
+        "Desctription": "Toter",
+        "Floor": "Outside",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Student Dev.",
+        "Desctription": "Toter ",
+        "Floor": "Outside",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Security",
+        "Desctription": "Toter ",
+        "Floor": "Outside",
+        "Location": "S (back) Entrance"
+    },
+    {
+        "Building": "Security",
+        "Desctription": "Toter 2",
+        "Floor": "Outside",
+        "Location": "S (back) Entrance"
+    },
+    {
+        "Building": "Security",
+        "Desctription": "Glass",
+        "Floor": "Outside",
+        "Location": "S (back) Entrance"
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Slim",
+        "Floor": "Outside",
+        "Location": "Breezeway "
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Slim 2",
+        "Floor": "Outside",
+        "Location": "Breezeway "
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Slim",
+        "Floor": "Basemet",
+        "Location": "Center"
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Glass",
+        "Floor": "Basemet",
+        "Location": "Center"
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Slim",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Schiff",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Harrington",
+        "Desctription": "Slim",
+        "Floor": "Basemet",
+        "Location": "Center"
+    },
+    {
+        "Building": "Harrington",
+        "Desctription": "Glass",
+        "Floor": "Basemet",
+        "Location": "Center"
+    },
+    {
+        "Building": "Harrington",
+        "Desctription": "Slim",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Harrington",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Harrington",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Harrington",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Harrington",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Harrington",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "University ",
+        "Desctription": "Slim",
+        "Floor": "Basemet",
+        "Location": "Center"
+    },
+    {
+        "Building": "University ",
+        "Desctription": "Glass",
+        "Floor": "Basemet",
+        "Location": "Center"
+    },
+    {
+        "Building": "University ",
+        "Desctription": "Slim",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "University ",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "University ",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "University ",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "University ",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "University ",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Slim",
+        "Floor": "Outside",
+        "Location": "Breezeway "
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Slim 2",
+        "Floor": "Outside",
+        "Location": "Breezeway "
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Slim",
+        "Floor": "Basemet",
+        "Location": "Center"
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Glass",
+        "Floor": "Basemet",
+        "Location": "Center"
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Slim",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Smith",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter ",
+        "Floor": "SAE",
+        "Location": "Back Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter 2",
+        "Floor": "SAE",
+        "Location": "Back Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Glass",
+        "Floor": "SAE",
+        "Location": "Back Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter ",
+        "Floor": "Phi Delt",
+        "Location": "Parking Lot"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter 2",
+        "Floor": "Phi Delt",
+        "Location": "Parking Lot"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Glass",
+        "Floor": "Phi Delt",
+        "Location": "Parking Lot"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter ",
+        "Floor": "Sigma Chi",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter 2",
+        "Floor": "Sigma Chi",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Glass",
+        "Floor": "Sigma Chi",
+        "Location": "Main Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter ",
+        "Floor": "Transfer",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter 2",
+        "Floor": "Transfer",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Glass",
+        "Floor": "Transfer",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter ",
+        "Floor": "Pi Phi",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter 2",
+        "Floor": "Pi Phi",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Glass",
+        "Floor": "Pi Phi",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter ",
+        "Floor": "G Phi",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter 2",
+        "Floor": "G Phi",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Glass",
+        "Floor": "G Phi",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter ",
+        "Floor": "Theta",
+        "Location": "Front Walkway"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter 2",
+        "Floor": "Theta",
+        "Location": "Front Walkway"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Glass",
+        "Floor": "Theta",
+        "Location": "Front Walkway"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter ",
+        "Floor": "A Phi",
+        "Location": "E Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Toter 2",
+        "Floor": "A Phi",
+        "Location": "E Entrance"
+    },
+    {
+        "Building": "Greek Outside",
+        "Desctription": "Glass",
+        "Floor": "A Phi",
+        "Location": "E Entrance"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Glass",
+        "Floor": "SAE",
+        "Location": "E Entrance"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Slim",
+        "Floor": "Basement",
+        "Location": "South Wall"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Slim",
+        "Floor": "1st floor",
+        "Location": "Front Room"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Hallway"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Hallway"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Slim",
+        "Floor": "Sigma Chi",
+        "Location": "Hallway"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Slim",
+        "Floor": "Basement",
+        "Location": "Landing"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Landing"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Slim",
+        "Floor": "1st floor",
+        "Location": "Foyer"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Glass",
+        "Floor": "1st floor",
+        "Location": "Foyer"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Landing"
+    },
+    {
+        "Building": "Greek Inside",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Landing"
+    },
+    {
+        "Building": "Pres. Garage",
+        "Desctription": "Toter",
+        "Floor": "Inside",
+        "Location": "Landing"
+    },
+    {
+        "Building": "Pres. Garage",
+        "Desctription": "Glass",
+        "Floor": "Inside",
+        "Location": "Landing"
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Slim",
+        "Floor": "Basement",
+        "Location": "Center"
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Center"
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Slim",
+        "Floor": "1st Floor",
+        "Location": "Laundry "
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Laundry "
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Laundry"
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Laundry"
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Laundry"
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Laundry"
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Slim",
+        "Floor": "4th Floor",
+        "Location": "Laundry"
+    },
+    {
+        "Building": "Seward",
+        "Desctription": "Glass",
+        "Floor": "4th Floor",
+        "Location": "Laundry"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Slim",
+        "Floor": "Breezeway",
+        "Location": "Laundry"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Slim 2",
+        "Floor": "Breezeway",
+        "Location": "Laundry"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Slim",
+        "Floor": "Basement",
+        "Location": "Lounge"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Lounge"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Slim",
+        "Floor": "1st Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Regester",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Toter 2",
+        "Floor": "1st Floor",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "W Entrance"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "E Entrance"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Toter 2",
+        "Floor": "1st Floor",
+        "Location": "E Entrance"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "E Entrance"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Trash Closet 2"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Trash Closet 2"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Trash Closet 2"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Trash Closet 2"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Slim",
+        "Floor": "Basement",
+        "Location": "Kitchen"
+    },
+    {
+        "Building": "Trimble",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Kitchen"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Toter 2",
+        "Floor": "1st Floor",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Glass 2",
+        "Floor": "1st Floor",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Toter 2",
+        "Floor": "1st Floor",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Slim",
+        "Floor": "Basement",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "TP",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Trash Closet"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Slim",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Toter",
+        "Floor": "1st Floor",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Toter 2",
+        "Floor": "1st Floor",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Glass",
+        "Floor": "1st Floor",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Slim",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Glass",
+        "Floor": "2nd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Slim",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Glass",
+        "Floor": "3rd Floor",
+        "Location": "Center"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Slim",
+        "Floor": "Basement",
+        "Location": "Center"
+    },
+    {
+        "Building": "AL",
+        "Desctription": "Glass",
+        "Floor": "Basement",
+        "Location": "Center"
+    },
+    {
+        "Building": "Copy Service",
+        "Desctription": "Toter",
+        "Floor": "Outside",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "Copy Service",
+        "Desctription": "Toter 2",
+        "Floor": "Outside",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "Copy Service",
+        "Desctription": "Glass",
+        "Floor": "Outside",
+        "Location": "S Entrance"
+    },
+    {
+        "Building": "Phone-a-thon",
+        "Desctription": "Toter",
+        "Floor": "Outside",
+        "Location": "N Entrance"
+    },
+    {
+        "Building": "Student Media",
+        "Desctription": "Toter",
+        "Floor": "Outside",
+        "Location": "Driveway"
+    },
+    {
+        "Building": "NIWA",
+        "Desctription": "Toter",
+        "Floor": "Outside",
+        "Location": "W Entrance"
+    }
+]
