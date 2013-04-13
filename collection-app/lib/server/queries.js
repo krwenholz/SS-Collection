@@ -1,16 +1,25 @@
 // AWESOME QUERY STUFF //
 module.exports = function(store) {
-    return store.query.expose('bin_def', 'forBuilding', function(building) {
+    store.query.expose('bin_def', 'forBuilding', function(building) {
         return this.where('Building').equals(building);
     });
 
-    return store.query.expose('bin_def', 'forFloor', function(building, floor) {
-        return this.where('Building').equals(building);
+    store.query.expose('bin_def', 'forFloor', function(floor) {
+        return this.where('Floor').equals(floor);
     });
 
-    return store.query.expose('bin_def', 'forLocation', 
-            function(building, floor, location) {
-                return this.where('Building').equals(building);
+    store.query.expose('bin_def', 'forLocation', function(loc) {
+        return this.where('Location').equals(loc);
+    });
+
+    store.query.expose('bin_def', 'withOnly', function(limit) {
+        return this.only(limit);
+    });
+
+    // FIXME: I'm super broken and don't do what I should
+    store.query.expose('bin_def', 'locationsForBuilding', function(building) {
+        building = this.where('Building').equals(building);
+        return building;
     });
 
 };

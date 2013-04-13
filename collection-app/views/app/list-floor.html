@@ -1,13 +1,13 @@
 <Body:>
     <div class="sixteen columns">
-      <h3>{building.title}</h3>
+      <h3>{buildingName}</h3>
       <ul>
-        {#each building['floors'] as :floor}
-        <li>{title}
+        {#each locsAndFs as :floor}
+        <li>{{this.floorName}}
           <ul>
-            {#each this['locations']}
-            <li><a href="buildings-{building.title}/floor-{{:floor.title}}/location-{title}">
-                Bins in {this['title']}</a></li>
+            {#each this['locs']}
+            <li><a href="buildings-{{buildingName}}/floor-{{:floor.floorName}}/location-{{this}}">
+              Bins in {{this}}</a></li>
             {/each}
           </ul>
         </li>

@@ -30,19 +30,7 @@ get('/', function(page, model, params) {
 
 // A route for the building select view
 get('/buildings', function(page, model, params) {
-    console.log("About to print buildings");
-    buildings = model.query("bin_def").forBuilding("WSC");
-    model.subscribe('bins.*', buildings, function(err, builds, builds1) {
-        console.log(builds1.get());
-//        model.ref('_buildings', builds);
-//        console.log('about to print buildings');
-//        model.set('buildIds', ['Jones', 'WSC']);
-//        console.log('trying refList stuff');
-//        console.log(model.get('_buildings'));
-//        model.refList('_buildingIds', '_buildings', 'buildIds');
-//        console.log(model.get('_buildingIds'));
-        page.render('list-building', { bins: bins, page_name: 'Buildings'} );
-    });
+    page.render('list-building', { bins: bins, page_name: 'Buildings'} );
 })
 
 // A route for the floors/locations in a building
@@ -50,16 +38,51 @@ get('/buildings-:building?', function(page, model, params) {
     var building = params.building;
     building || (building = 'null');
 
-    var buildingBins = null;
-    for (build in bins){
-        if (bins[build]['title']==building) {
-            buildingBins = bins[build];
-        }
-    }
+    // Grab all bin_defs for this building
+    byBuilding = 
+        model.query('bin_def').forBuilding(building);
 
-    page.render('list-floor', 
-        { building: buildingBins, 
-            page_name: 'Locations for '+buildingBins['title']} );
+    model.subscribe(byBuilding, function(err, buildingBins) {
+        // Grab the building's locations and floors (as objects)
+        var locObj = buildingBins.get().reduce(function(lfs, bin) {
+            if (lfs[bin.Floor] == undefined) {
+                lfs[bin.Floor] = [bin.Location];
+            } else {
+                lfs[bin.Floor].push(bin.Location);
+            }
+            return lfs;
+        }, {});
+
+        // Now make it iterable
+        var locsAndFloors = [];
+        for (ii in locObj) {
+            var locats = [];
+            //uniquness
+            for(var jj in locObj[ii]) {
+                if(locats.indexOf(locObj[ii][jj]) == -1) {
+                    locats.push(locObj[ii][jj]);
+                }
+            }
+            locsAndFloors.push({floorName: ii, locs: locats});
+        }
+
+        // Sort them
+        locsAndFloors = locsAndFloors.sort(function(a, b) {
+            if (a.floorName < b.floorName)
+                 return -1;
+            if (a.floorName > b.floorName)
+                 return 1;
+            // a must be equal to b
+            return 0;
+        });
+
+        console.log(locsAndFloors);
+
+        page.render('list-floor', 
+            { locsAndFs: locsAndFloors, 
+                buildingName: building,
+                page_name: 'Locations for '+building} );
+    });
 })
 
 // View the bins at a location
@@ -74,37 +97,27 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
     var locName = params.loc;
     locName || (locName = 'null');
 
-    var loc = null;
-    for (build in bins){
-        // for every building
-        if (bins[build]['title']==buildName) {
-            for (fl in bins[build]['floors']) {
-                // for every floor
-                if (bins[build]['floors'][fl]['title'] == floorName) {
-                    for(ll in bins[build]['floors'][fl]['locations']) {
-                        // for every location
-                        if(bins[build]['floors'][fl]['locations'][ll]['title']
-                            == locName) {
-                            loc = bins[build]['floors'][fl]['locations'][ll];
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-	
+    locationQuery = 
+        model.query('bin_def').forBuilding(buildName).forFloor(floorName)
+            .forLocation(locName);
 
     // TODO: Need to fix this shit to use a database for bin names and such
     // Here comes the magic for our persistence and data sharing
-    var pathName = buildName +'.'+ floorName +'.'+ loc['title'];
-    model.subscribe('bins.' + pathName, function(err, curLoc){
+    var pathName = buildName +'.'+ floorName +'.'+ locName;
+    model.subscribe('bins.' + pathName, locationQuery, 
+        function(err, curLoc, locDef){
         // Need underscore to keep it private for ref
     	model.ref('_bins', curLoc);
     	
+        // TODO: Check that this works
+        // Grab the bin names
+        var binNames = locDef.get().map(function(bin) {
+            return bin['Description'];
+        });
+
         // Now define the default bin states. Bins take on values of 'not-full',
         // 'full', and 'emptied'.
-        var basicBins = loc['bins'].map(function(binName){
+        var basicBins = binNames.map(function(binName){
             var theTime = new Date();
             return {'bName': binName, 
                     'activity':[{'time': theTime, 'activity': 'not-full'}]};
