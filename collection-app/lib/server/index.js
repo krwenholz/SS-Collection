@@ -6,7 +6,6 @@ var http = require('http')
   , app = require('../app')
   , serverError = require('./serverError')
 
-
 // SERVER CONFIGURATION //
 
 var expressApp = express()
@@ -20,6 +19,8 @@ store = derby.createStore({
               listen:  server
             , db:      {type: 'Mongo', uri: 'mongodb://localhost/database'}
         });
+
+require('./queries')(store);
 
 
 var ONE_YEAR = 1000 * 60 * 60 * 24 * 365
@@ -51,7 +52,6 @@ expressApp
   .use(app.router())
   .use(expressApp.router)
   .use(serverError(root))
-
 
 // SERVER ONLY ROUTES //
 

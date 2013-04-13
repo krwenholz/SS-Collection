@@ -30,14 +30,17 @@ get('/', function(page, model, params) {
 
 // A route for the building select view
 get('/buildings', function(page, model, params) {
-    model.subscribe('bins.*', function(err, builds) {
-        model.ref('_buildings', builds);
-        console.log('about to print buildings');
-        model.set('buildIds', ['Jones', 'WSC']);
-        console.log('trying refList stuff');
-        console.log(model.get('_buildings'));
-        model.refList('_buildingIds', '_buildings', 'buildIds');
-        console.log(model.get('_buildingIds'));
+    console.log("About to print buildings");
+    buildings = model.query("bin_def").forBuilding("WSC");
+    model.subscribe('bins.*', buildings, function(err, builds, builds1) {
+        console.log(builds1.get());
+//        model.ref('_buildings', builds);
+//        console.log('about to print buildings');
+//        model.set('buildIds', ['Jones', 'WSC']);
+//        console.log('trying refList stuff');
+//        console.log(model.get('_buildings'));
+//        model.refList('_buildingIds', '_buildings', 'buildIds');
+//        console.log(model.get('_buildingIds'));
         page.render('list-building', { bins: bins, page_name: 'Buildings'} );
     });
 })
