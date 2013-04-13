@@ -2,9 +2,9 @@
     <div class="sixteen columns">
       <h3>Buildings</h3>
       <ul>
-        {{#each bins}}
-          <li><a href="buildings-{this['title']}">
-            View {{this['title']}}</a></li>
+        {{#each buildings}}
+          <li><a href="buildings-{{this}}">
+            View {{this}}</a></li>
         {{/each}}
       </ul>
     </div>

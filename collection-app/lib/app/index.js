@@ -30,7 +30,23 @@ get('/', function(page, model, params) {
 
 // A route for the building select view
 get('/buildings', function(page, model, params) {
-    page.render('list-building', { bins: bins, page_name: 'Buildings'} );
+    console.log("About to print buildings");
+    buildings = model.query("bin_def").forBuilding('WSC');
+    buildingNames = model.query('bin_def').onlyBuildings();
+    model.subscribe('bins.*', buildings, buildingNames, function(err, builds, builds1, builds2) {
+       console.log('WSC building results:');
+        console.log(builds1.get());
+        console.log('Unique building results:');
+        allBuildings = builds2.get();
+        buildingNames = Array();
+        for(var i=0; i<allBuildings.length; i++){
+            if(buildingNames.indexOf(allBuildings[i].Building) < 0){
+                buildingNames.push(allBuildings[i].Building);
+            }
+        }
+        console.log(buildingNames);
+        page.render('list-building', { buildings: buildingNames, page_name: 'Buildings'} );
+    });
 })
 
 // A route for the floors/locations in a building
