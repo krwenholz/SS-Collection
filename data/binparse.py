@@ -1,5 +1,5 @@
 import xlrd, json, sys
-from string import maketrans
+
 
 def main():
     try:
@@ -64,7 +64,8 @@ def labelList( list, labels ):
     #return list
 
 def show( sheet ):
-    print json.dumps(sheet, sort_keys=True, indent=4, separators=(',', ': '))
+    for row in sheet:
+        print json.dumps(row, sort_keys=True, indent=4, separators=(',', ': '))
 
 
 if __name__ == "__main__":
