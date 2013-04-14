@@ -29,7 +29,7 @@ def main():
     
     fillDown(cans) # fill out all the indices of the sheet
     
-    colunmTitles = ['Building', 'Floor', 'Location', 'Desctription']
+    colunmTitles = ['Building', 'Floor', 'Location', 'Description']
     labeledCans = []
     for can in cans:
         labeledCans.append(labelList(can, colunmTitles))
