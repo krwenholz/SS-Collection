@@ -1,5 +1,5 @@
 import xlrd, json, sys
-from string import maketrans
+
 
 def main():
     try:
@@ -29,7 +29,7 @@ def main():
     
     fillDown(cans) # fill out all the indices of the sheet
     
-    colunmTitles = ['Building', 'Floor', 'Location', 'Desctription']
+    colunmTitles = ['Building', 'Floor', 'Location', 'Description']
     labeledCans = []
     for can in cans:
         labeledCans.append(labelList(can, colunmTitles))
@@ -64,7 +64,8 @@ def labelList( list, labels ):
     #return list
 
 def show( sheet ):
-    print json.dumps(sheet, sort_keys=True, indent=4, separators=(',', ': '))
+    for row in sheet:
+        print json.dumps(row, sort_keys=True, indent=4, separators=(',', ': '))
 
 
 if __name__ == "__main__":
