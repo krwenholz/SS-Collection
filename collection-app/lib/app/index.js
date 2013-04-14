@@ -7,20 +7,6 @@ var derby = require('derby')
 
 derby.use(require('../../ui'))
 
-//Example query motif to get the last time a bin was emptied
-//THIS ISN'T A WORKING EXAMPLE AT THIS POINT. JUST ILLUSTRATING HOW WE MIGHT BUILD OUR QUERIES
-
-/*store.query.expose('list-floor', 'lastEmptied', function (bin) { //Expose query syntax: .expose(namespace, motifName, fn) 
-	return this
-		.where('binID').equals(bin) //Get only the bin you're interested in
-		.sort('emptyDates','desc') //Sort the results in descending order by the dates it was emptied
-		.limit(1); //Only get the last time it was emptied
-});*/
-
-//We could now call this query in the app by doing something like this:
-/*var lastEmptied = model.query('list-floor').lastEmptied(1234);*/
-
-
 // ROUTES //
 
 // Derby routes can be rendered on the client and the server
@@ -30,8 +16,8 @@ get('/', function(page, model, params) {
 
 // A route for the building select view
 get('/buildings', function(page, model, params) {
-    buildings = model.query("bin_def").forBuilding('WSC');
-    buildingNames = model.query('bin_def').onlyBuildings();
+    buildings = model.query('bin_defs').forBuilding('WSC');
+    buildingNames = model.query('bin_defs').onlyBuildings();
     model.subscribe('bins.*', buildings, buildingNames, function(err, builds, builds1, builds2) {
         allBuildings = builds2.get();
         buildingNames = Array();
@@ -49,9 +35,9 @@ get('/buildings-:building?', function(page, model, params) {
     var building = params.building;
     building || (building = 'null');
 
-    // Grab all bin_defs for this building
+    // Grab all bin_defss for this building
     byBuilding = 
-        model.query('bin_def').forBuilding(building);
+        model.query('bin_defs').forBuilding(building);
 
     model.subscribe(byBuilding, function(err, buildingBins) {
         // Grab the building's locations and floors (as objects)
@@ -108,7 +94,7 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
     locName || (locName = 'null');
 
     locationQuery = 
-        model.query('bin_def').forBuilding(buildName).forFloor(floorName)
+        model.query('bin_defs').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName);
 
     // Here comes the magic for our persistence and data sharing
@@ -179,6 +165,4 @@ ready(function(model) {
         bin.unshift({'time': theTime, 'activity': 'not-full'});
     }
 });
-
-// LOGIC CODE //
 

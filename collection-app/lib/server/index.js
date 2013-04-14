@@ -9,7 +9,10 @@ var http = require('http')
 // SERVER CONFIGURATION //
 
 var expressApp = express()
-  , server = module.exports = http.createServer(expressApp)
+
+expressApp.use(express.basicAuth('ss-collection', 'ss-collection-pass'));
+
+var server = module.exports = http.createServer(expressApp)
 
 derby.use(derby.logPlugin)
 //store = derby.createStore({listen: server});
@@ -40,11 +43,11 @@ expressApp
 
   // Uncomment and supply secret to add Derby session handling
   // Derby session middleware creates req.model and subscribes to _session
-  // .use(express.cookieParser())
-  // .use(store.sessionMiddleware({
-  //   secret: process.env.SESSION_SECRET || 'YOUR SECRET HERE'
-  // , cookie: {maxAge: ONE_YEAR}
-  // }))
+  .use(express.cookieParser())
+  .use(store.sessionMiddleware({
+    secret: process.env.SESSION_SECRET || 'REALLYawesomeBASICsecret42'
+  , cookie: {maxAge: ONE_YEAR}
+  }))
 
   // Adds req.getModel method
   .use(store.modelMiddleware())
