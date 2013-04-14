@@ -17,7 +17,7 @@ derby.use(require('racer-db-mongo'));
 
 store = derby.createStore({
               listen:  server
-            , db:      {type: 'Mongo', uri: 'mongodb://localhost/database'}
+            , db:      {type: 'Mongo', uri: 'mongodb://localhost/ss-collection'}
         });
 
 require('./queries')(store);

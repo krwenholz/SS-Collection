@@ -16,5 +16,9 @@ module.exports = function(store) {
         return this.only('Building');
     });
 
+    store.query.expose('bin_def', 'onlyBins', function(){
+        return this.only('Description');
+    });
+
 };
 

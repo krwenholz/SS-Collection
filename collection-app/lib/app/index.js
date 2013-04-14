@@ -30,13 +30,9 @@ get('/', function(page, model, params) {
 
 // A route for the building select view
 get('/buildings', function(page, model, params) {
-    console.log("About to print buildings");
     buildings = model.query("bin_def").forBuilding('WSC');
     buildingNames = model.query('bin_def').onlyBuildings();
     model.subscribe('bins.*', buildings, buildingNames, function(err, builds, builds1, builds2) {
-       console.log('WSC building results:');
-        console.log(builds1.get());
-        console.log('Unique building results:');
         allBuildings = builds2.get();
         buildingNames = Array();
         for(var i=0; i<allBuildings.length; i++){
@@ -44,7 +40,6 @@ get('/buildings', function(page, model, params) {
                 buildingNames.push(allBuildings[i].Building);
             }
         }
-        console.log(buildingNames);
         page.render('list-building', { buildings: buildingNames, page_name: 'Buildings'} );
     });
 })
@@ -79,6 +74,7 @@ get('/buildings-:building?', function(page, model, params) {
                     locats.push(locObj[ii][jj]);
                 }
             }
+
             locsAndFloors.push({floorName: ii, locs: locats});
         }
 
@@ -91,8 +87,6 @@ get('/buildings-:building?', function(page, model, params) {
             // a must be equal to b
             return 0;
         });
-
-        console.log(locsAndFloors);
 
         page.render('list-floor', 
             { locsAndFs: locsAndFloors, 
@@ -117,7 +111,6 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         model.query('bin_def').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName);
 
-    // TODO: Need to fix this shit to use a database for bin names and such
     // Here comes the magic for our persistence and data sharing
     var pathName = buildName +'.'+ floorName +'.'+ locName;
     model.subscribe('bins.' + pathName, locationQuery, 
@@ -125,7 +118,6 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         // Need underscore to keep it private for ref
     	model.ref('_bins', curLoc);
     	
-        // TODO: Check that this works
         // Grab the bin names
         var binNames = locDef.get().map(function(bin) {
             return bin['Description'];
@@ -148,10 +140,10 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         page.render('list-bins', 
                     { buildingName : buildName, 
                       floorName : floorName, 
-                      locationName: loc['title'],
-                      binNames: loc['bins'], 
+                      locationName: locName,
+                      binNames: binNames, 
                       page_name: 'bins for '+buildName+' in '+floorName+' at '+
-                        loc['title']});
+                        locName});
 	});
 })
 
@@ -186,59 +178,7 @@ ready(function(model) {
         var theTime = new Date();
         bin.unshift({'time': theTime, 'activity': 'not-full'});
     }
-
-
-    // EXAMPLES FROM OLD CODE
-//  var timer
-//
-//  // Functions on the app can be bound to DOM events using the "x-bind"
-//  // attribute in a template.
-//  this.stop = function() {
-//    // Any path name that starts with an underscore is private to the current
-//    // client. Nothing set under a private path is synced back to the server.
-//    model.set('_stopped', true)
-//    clearInterval(timer)
-//  }
-//
-//  this.start = function() {
-//    model.set('_stopped', false)
-//    timer = setInterval(function() {
-//      model.set('_timer', (((+new Date()) - start) / 1000).toFixed(1))
-//    }, 100)
-//  }
-//  this.start()
-//    
-})
+});
 
 // LOGIC CODE //
 
-bins = [{'title': 'WSC', 
-                floors: [{'title':'Basement', locations:[
-                            {'title':'Shipping-Receiving', bins:[
-                                'Toter','Glass','Cardboard']}, 
-                            {'title':'Mail Room', bins:[
-                                'Toter', 'Cardboard']},
-                            {'title':'Cellar', bins:[
-                                'Toter 1', 'Toter 2']}]},
-                         {'title':'1st Floor', locations:[
-                             {'title':'Diversions', bins:[
-                                 'Toter']}]},
-                         {'title':'2nd Floor', locations:[
-                             {'title':'Elevator', bins:[
-                                 'Toter', 'Glass']},
-                             {'title':'ASUPS', bins:[
-                                 'Toter']}]}]},
-        {'title': 'Jones',
-                  floors: [{'title':'Basement', locations:[
-                              {'title':'Recycling Station', bins:[
-                                  'Toter 1', 'Toter 2', 'Toter 3',
-                                  'Toter 4', 'Cardboard', 'Glass', ]}]},
-                           {'title':'1st Floor', locations:[
-                               {'title':'Staff Kitchennette', bins:[
-                                   'Glass']}]},
-                           {'title':'2nd Floor', locations:[
-                               {'title':'Hallway-North', bins:[
-                                   'Toter 1', 'Toter 2']},
-                               {'title':'Hallway-South', bins:[
-                                   'Toter 1', 'Glass']}]}]}
-]
