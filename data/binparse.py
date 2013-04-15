@@ -65,7 +65,7 @@ def labelList( list, labels ):
 
 def show( sheet ):
     for row in sheet:
-        print json.dumps(row, sort_keys=True, indent=4, separators=(',', ': '))
+        print json.dumps(row, sort_keys=True, separators=(',', ': '))
 
 
 if __name__ == "__main__":
