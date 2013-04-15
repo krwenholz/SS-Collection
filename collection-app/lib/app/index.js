@@ -123,6 +123,8 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
             curLoc.setNull(oneBin['bName'], oneBin['activity']);
         });
 
+
+
         page.render('list-bins', 
                     { buildingName : buildName, 
                       floorName : floorName, 
@@ -144,7 +146,7 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        bin.unshift({'time': theTime, 'activity': 'emptied'});
+        bin.push({'time': theTime, 'activity': 'emptied'});
     }
 
     // "full"s a bin by adding a new event to the activity history
@@ -153,7 +155,7 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        bin.unshift({'time': theTime, 'activity': 'full'});
+        bin.push({'time': theTime, 'activity': 'full'});
     }
 
     // "not-full"s a bin by adding a new event to the activity history
@@ -162,7 +164,7 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        bin.unshift({'time': theTime, 'activity': 'not-full'});
+        bin.push({'time': theTime, 'activity': 'not-full'});
     }
 });
 
