@@ -3,7 +3,6 @@ var derby = require('derby')
   , get = app.get
   , view = app.view
   , ready = app.ready
-  , start = +new Date()
 
 derby.use(require('../../ui'))
 
@@ -146,6 +145,7 @@ ready(function(model) {
         // Add a new entry for the now emptied bin
         var theTime = new Date();
         var recent = {'time': theTime, 'activity': 'emptied'};
+        console.log(bin.path());
         bin.push('hist', recent);
         bin.set('recent', recent);
     }
