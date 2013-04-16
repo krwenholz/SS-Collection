@@ -29,11 +29,19 @@ def main():
     
     fillDown(cans) # fill out all the indices of the sheet
     
+    # replace unwanted chars
+    cans = map2d(cans, replaceChars)
+    
+    # strip trailing
+    
+    # add labels to data entries
     colunmTitles = ['Building', 'Floor', 'Location', 'Description']
     labeledCans = []
     for can in cans:
         labeledCans.append(labelList(can, colunmTitles))
-    
+        
+
+
     show(labeledCans)
 
 # make the building labels conform to the other label's pattern
@@ -56,16 +64,32 @@ def fillDown( sheet ):
                 row[idx] = label[idx]
 
 def isBuildingNameRow( row ):
-    isRow = row[0] is not '' and row[1] is '' and row[2] is '' and row[3] is ''
-    return isRow
+    return row[0] is not '' and row[1] is '' and row[2] is '' and row[3] is ''
+
 
 def labelList( list, labels ):
     return {label: item for (item, label) in zip(list, labels)}
-    #return list
+
+def replaceChars( dirty ):
+    translate = { ' ':'_', '/':'-' }
+    dirty = dirty.strip()
+    clean = []
+    for char in dirty:
+        clean.append(translate.get(char,char))
+    return ''.join(clean)
+        
 
 def show( sheet ):
     for row in sheet:
-        print json.dumps(row, sort_keys=True, indent=4, separators=(',', ': '))
+        print json.dumps(row, sort_keys=True, separators=(',', ': '))
+        
+def map2d( list2d , f ):
+    for out_idx in range(0,len(list2d)):
+        for in_idx in range(0,len(list2d[out_idx])):
+            (list2d[out_idx])[in_idx] = f((list2d[out_idx])[in_idx])
+    return list2d
+    
+        
 
 
 if __name__ == "__main__":
