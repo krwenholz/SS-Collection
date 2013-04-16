@@ -3,7 +3,6 @@ var derby = require('derby')
   , get = app.get
   , view = app.view
   , ready = app.ready
-  , start = +new Date()
 
 derby.use(require('../../ui'))
 
@@ -98,7 +97,8 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
             .forLocation(locName);
 
     // Here comes the magic for our persistence and data sharing
-    var pathName = buildName +'.'+ floorName +'.'+ locName;
+    // We use the .*.recent to only get the recent stuff (what we want)
+    var pathName = buildName +'.'+ floorName +'.'+ locName +'.*.recent';
     model.subscribe('bins.' + pathName, locationQuery, 
         function(err, curLoc, locDef){
         // Need underscore to keep it private for ref
@@ -111,17 +111,17 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
 
         // Now define the default bin states. Bins take on values of 'not-full',
         // 'full', and 'emptied'.
-        var basicBins = binNames.map(function(binName){
-            var theTime = new Date();
-            return {'bName': binName, 
-                    'activity':[{'time': theTime, 'activity': 'not-full'}]};
-        });
-
         // Sets the value if it hasn't already been defined (should only happen on
         // first run)
-        basicBins.forEach(function(oneBin) {
-            curLoc.setNull(oneBin['bName'], oneBin['activity']);
+        binNames.forEach(function(binName) {
+            var theTime = new Date();
+            curLoc.setNull(binName+'.hist', 
+                [{'time': theTime, 'activity': 'not-full'}]);
+            curLoc.setNull(binName+'.recent',
+                {'time':theTime,'activity': 'not-full'});
         });
+
+
 
         page.render('list-bins', 
                     { buildingName : buildName, 
@@ -144,25 +144,32 @@ ready(function(model) {
         bin = model.at(el);
         // Add a new entry for the now emptied bin
         var theTime = new Date();
-        bin.unshift({'time': theTime, 'activity': 'emptied'});
+        var recent = {'time': theTime, 'activity': 'emptied'};
+        console.log(bin.path());
+        bin.push('hist', recent);
+        bin.set('recent', recent);
     }
 
     // "full"s a bin by adding a new event to the activity history
     exports.fullBin= function(e, el, next) {
         // Grab context nearest to this bin
         bin = model.at(el);
-        // Add a new entry for the now emptied bin
+        // Add a new entry for the now full bin
         var theTime = new Date();
-        bin.unshift({'time': theTime, 'activity': 'full'});
+        var recent = {'time': theTime, 'activity': 'full'};
+        bin.push('hist', recent);
+        bin.set('recent', recent);
     }
 
     // "not-full"s a bin by adding a new event to the activity history
     exports.notFullBin= function(e, el, next) {
         // Grab context nearest to this bin
         bin = model.at(el);
-        // Add a new entry for the now emptied bin
+        // Add a new entry for the now not-full bin
         var theTime = new Date();
-        bin.unshift({'time': theTime, 'activity': 'not-full'});
+        var recent = {'time': theTime, 'activity': 'not-full'};
+        bin.push('hist', recent);
+        bin.set('recent', recent);
     }
 });
 
