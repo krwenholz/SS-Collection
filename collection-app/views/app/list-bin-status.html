@@ -3,13 +3,21 @@
       <h3>Bins last marked full</h3>
       <ul>
         {{#each fulls as :fBin}}
-          <li><a href="{{:fBin.URL}}">{{:fBin.Text}}</a></li>
+          <li>
+            <a href="/buildings-{{:fBin.building}}/floor-{{:fBin.floor}}/location-{{:fBin.location}}">
+                {{:fBin.bin}} at {{:fBin.building}}/{{:fBin.floor}}/{{:fBin.location}}
+            </a>
+         </li>
         {{/each}}
       </ul>
-      <h3>Bins not checked in 2+ days</h3>
+      <h3>Bins not checked in {{numDays}}+ days</h3>
       <ul>
-        {{#each lonelys as :lBin}}
-          <li><a href="{{:lBin.URL}}">{{:lBin.Text}}</a></li>
+        {{#each lonelys as :lBin}} 
+          <li>
+            <a href="/buildings-{{:lBin.building}}/floor-{{:lBin.floor}}/location-{{:lBin.location}}">
+                {{:lBin.bin}} at {{:lBin.building}}/{{:lBin.floor}}/{{:lBin.location}}
+            </a>
+         </li>
         {{/each}}
       </ul>
     </div>

@@ -29,6 +29,19 @@ get('/buildings', function(page, model, params) {
     });
 })
 
+//A route for viewing bins which are currently full or haven't been checked in a while
+//Requires queries which require fully-qualified bins collection. Commenting out until this change is made
+/*get('bin-status', function(page, model, params){
+    fullBins = model.query('bins').onlyFull();
+    numDays = 2; //number of days that need to pass for data bin to be "old"
+    lonelyBins = model.query('bins').olderThan(numDays);
+    model.subscribe(fullBins, lonelyBins, function(err, full, lonely){
+        allFull = full.get();
+        allLonely = lonely.get();
+        page.render('list-bin-status', {fulls: allFull, lonelys: allLonely, daysOld: numDays, page_name: 'Bins To Check'});
+    });
+});*/
+
 // A route for the floors/locations in a building
 get('/buildings-:building?', function(page, model, params) {
     var building = params.building;
