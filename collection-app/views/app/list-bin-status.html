@@ -1,0 +1,15 @@
+<Body:>
+    <div class="sixteen columns">
+      <h3>Bins last marked full</h3>
+      <ul>
+        {{#each fulls as :fBin}}
+          <li><a href="{{:fBin.URL}}">{{:fBin.Text}}</a></li>
+        {{/each}}
+      </ul>
+      <h3>Bins not checked in 2+ days</h3>
+      <ul>
+        {{#each lonelys as :lBin}}
+          <li><a href="{{:lBin.URL}}">{{:lBin.Text}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
