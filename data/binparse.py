@@ -5,6 +5,8 @@ def main():
     try:
         file = sys.argv[1]
     except:
+        print "Bin Parse"
+        print "Parses an excel spreadsheet and outputs json data."
         print "usage:\tbinparse.py [SPREADSHEET]"
         sys.exit(-1)
     
