@@ -1,10 +1,8 @@
 <Body:>
     <div class="sixteen columns">
       <h3>Buildings</h3>
-      <ul>
         {{#each buildings}}
-          <li><a href="buildings-{{this}}">
-            View {{this}}</a></li>
+          <a href="buildings-{{this}}" class="btn btn-large btn-info" style="margin:0 15px 15px 0;">
+            {{this}}</a>
         {{/each}}
-      </ul>
     </div>

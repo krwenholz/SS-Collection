@@ -25,6 +25,7 @@ get('/buildings', function(page, model, params) {
                 buildingNames.push(allBuildings[i].Building);
             }
         }
+        buildingNames.sort();
         page.render('list-building', { buildings: buildingNames, page_name: 'Buildings'} );
     });
 })
