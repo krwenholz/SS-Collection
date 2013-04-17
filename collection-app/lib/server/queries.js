@@ -29,7 +29,7 @@ module.exports = function(store) {
     });
 
     store.query.expose('bins', 'recAndDesc', function(){
-        return this.only('Recent');
+        return this.only('Description');
     });
 
     //Returns bins where the most recent activity == full

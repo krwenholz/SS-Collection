@@ -114,43 +114,44 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
     var locName = params.loc;
     locName || (locName = 'null');
 
-    locationQuery = 
+    var locationQuery = 
         model.query('bin_defs').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName);
 
     // TODO: Subscription isn't working.  This sucks.
-    binQuery = 
+    var binQuery = 
         model.query('bins').forBuilding(buildName).forFloor(floorName)
-            .forLocation(locName).recAndDesc();
+            .forLocation(locName);//.recAndDesc();
 
-    // Here comes the magic for our persistence and data sharing
-    // We use the .*.recent to only get the recent stuff (what we want)
-    model.subscribe(binQuery, locationQuery, 
-        function(err, curBins, locDef){
-        // Need underscore to keep it private for ref
-    	model.ref('_bins', curBins);
-        console.log(curBins.get());
-    	
-        // Grab the bin names and initialize the bin in the db
-        var binNames = locDef.get().map(function(bin) {
-            var binName = bin['Description'];
-            model.setNull(
-                // The complex name is a UID
-                'bins.'+buildName +'#'+ floorName +'#'+ locName +'#'+ binName,
-                // Initial data is clean and simple
-                {Building: buildName, Floor: floorName, Location: locName,
-                    Description: binName, Hist: [], Recent: null});
-            return binName;
-        });
+    model.fetch(locationQuery, function(err, locDef) {
+        // Here comes the magic for our persistence and data sharing
+        // We use the .*.recent to only get the recent stuff (what we want)
+        model.subscribe(binQuery, function(err, curBins){
+            // Need underscore to keep it private for ref
+        	model.ref('_bins', curBins);
+            console.log(curBins.get());
+        	
+            // Grab the bin names and initialize the bin in the db
+            var binNames = locDef.get().map(function(bin) {
+                var binName = bin['Description'];
+                model.setNull(
+                    // The complex name is a UID
+                    'bins.'+buildName +'#'+ floorName +'#'+ locName +'#'+ binName,
+                    // Initial data is clean and simple
+                    {Building: buildName, Floor: floorName, Location: locName,
+                        Description: binName, Hist: [], Recent: null});
+                return binName;
+            });
 
-        page.render('list-bins', 
-                    { buildingName : buildName, 
-                      floorName : floorName, 
-                      locationName: locName,
-                      binNames: binNames, 
-                      page_name: 'bins for '+buildName+' in '+floorName+' at '+
-                        locName});
-	});
+            page.render('list-bins', 
+                        { buildingName : buildName, 
+                          floorName : floorName, 
+                          locationName: locName,
+                          binNames: binNames, 
+                          page_name: 'bins for '+buildName+' in '+floorName+' at '+
+                            locName});
+	    })
+    });
 })
 
 
