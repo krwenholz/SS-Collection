@@ -16,6 +16,22 @@ module.exports = function(store) {
         return this.only('Building');
     });
 
+    store.query.expose('bins', 'forBuilding', function(building) {
+        return this.where('Building').equals(building);
+    });
+
+    store.query.expose('bins', 'forFloor', function(floor) {
+        return this.where('Floor').equals(floor);
+    });
+
+    store.query.expose('bins', 'forLocation', function(loc) {
+        return this.where('Location').equals(loc);
+    });
+
+    store.query.expose('bins', 'recAndDesc', function(){
+        return this.only('Recent');
+    });
+
     //Returns bins where the most recent activity == full
     //Assumes the new fully-qualified structure for bins, which doesn't exist yet (commenting out for now)
     /*store.query.expose('bins', 'onlyFull', function(){

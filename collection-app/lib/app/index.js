@@ -15,17 +15,26 @@ get('/', function(page, model, params) {
 
 // A route for the building select view
 get('/buildings', function(page, model, params) {
-    buildings = model.query('bin_defs').forBuilding('WSC');
-    buildingNames = model.query('bin_defs').onlyBuildings();
-    model.subscribe('bins.*', buildings, buildingNames, function(err, builds, builds1, builds2) {
-        allBuildings = builds2.get();
-        buildingNames = Array();
+    var buildingNames = model.query('bin_defs').onlyBuildings();
+    model.fetch(buildingNames, function(err, buildNames) {
+        allBuildings = buildNames.get();
+        bNames = Array();
         for(var i=0; i<allBuildings.length; i++){
-            if(buildingNames.indexOf(allBuildings[i].Building) < 0){
-                buildingNames.push(allBuildings[i].Building);
+            if(bNames.indexOf(allBuildings[i].Building) < 0){
+                bNames.push(allBuildings[i].Building);
             }
         }
-        page.render('list-building', { buildings: buildingNames, page_name: 'Buildings'} );
+        
+        // TODO: Why isn't this sorting it?!
+        bNames = bNames.sort(function(a, b) {
+            if (a.floorName < b.floorName)
+                 return -1;
+            if (a.floorName > b.floorName)
+                 return 1;
+            // a must be equal to b
+            return 0;
+        });
+        page.render('list-building', { buildings: bNames, page_name: 'Buildings'});
     });
 })
 
@@ -51,7 +60,7 @@ get('/buildings-:building?', function(page, model, params) {
     byBuilding = 
         model.query('bin_defs').forBuilding(building);
 
-    model.subscribe(byBuilding, function(err, buildingBins) {
+    model.fetch(byBuilding, function(err, buildingBins) {
         // Grab the building's locations and floors (as objects)
         var locObj = buildingBins.get().reduce(function(lfs, bin) {
             if (lfs[bin.Floor] == undefined) {
@@ -109,32 +118,30 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         model.query('bin_defs').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName);
 
+    // TODO: Subscription isn't working.  This sucks.
+    binQuery = 
+        model.query('bins').forBuilding(buildName).forFloor(floorName)
+            .forLocation(locName).recAndDesc();
+
     // Here comes the magic for our persistence and data sharing
     // We use the .*.recent to only get the recent stuff (what we want)
-    var pathName = buildName +'.'+ floorName +'.'+ locName +'.*.recent';
-    model.subscribe('bins.' + pathName, locationQuery, 
-        function(err, curLoc, locDef){
+    model.subscribe(binQuery, locationQuery, 
+        function(err, curBins, locDef){
         // Need underscore to keep it private for ref
-    	model.ref('_bins', curLoc);
+    	model.ref('_bins', curBins);
+        console.log(curBins.get());
     	
-        // Grab the bin names
+        // Grab the bin names and initialize the bin in the db
         var binNames = locDef.get().map(function(bin) {
-            return bin['Description'];
+            var binName = bin['Description'];
+            model.setNull(
+                // The complex name is a UID
+                'bins.'+buildName +'#'+ floorName +'#'+ locName +'#'+ binName,
+                // Initial data is clean and simple
+                {Building: buildName, Floor: floorName, Location: locName,
+                    Description: binName, Hist: [], Recent: null});
+            return binName;
         });
-
-        // Now define the default bin states. Bins take on values of 'not-full',
-        // 'full', and 'emptied'.
-        // Sets the value if it hasn't already been defined (should only happen on
-        // first run)
-        binNames.forEach(function(binName) {
-            var theTime = new Date();
-            curLoc.setNull(binName+'.hist', 
-                [{'time': theTime, 'activity': 'not-full'}]);
-            curLoc.setNull(binName+'.recent',
-                {'time':theTime,'activity': 'not-full'});
-        });
-
-
 
         page.render('list-bins', 
                     { buildingName : buildName, 
@@ -158,9 +165,8 @@ ready(function(model) {
         // Add a new entry for the now emptied bin
         var theTime = new Date();
         var recent = {'time': theTime, 'activity': 'emptied'};
-        console.log(bin.path());
-        bin.push('hist', recent);
-        bin.set('recent', recent);
+        bin.push('Hist', recent);
+        bin.set('Recent', recent);
     }
 
     // "full"s a bin by adding a new event to the activity history
@@ -170,8 +176,8 @@ ready(function(model) {
         // Add a new entry for the now full bin
         var theTime = new Date();
         var recent = {'time': theTime, 'activity': 'full'};
-        bin.push('hist', recent);
-        bin.set('recent', recent);
+        bin.push('Hist', recent);
+        bin.set('Recent', recent);
     }
 
     // "not-full"s a bin by adding a new event to the activity history
@@ -181,8 +187,8 @@ ready(function(model) {
         // Add a new entry for the now not-full bin
         var theTime = new Date();
         var recent = {'time': theTime, 'activity': 'not-full'};
-        bin.push('hist', recent);
-        bin.set('recent', recent);
+        bin.push('Hist', recent);
+        bin.set('Recent', recent);
     }
 });
 
