@@ -11,6 +11,12 @@ doing awesome "things". . . .
 * collection-app is the app directory
 * You can install all dependencies with 
     npm install
+* To set up the database (on an empty mongodb):
+    * Run "binparse.py locations.xlsx"
+    * The fresh file generated is a json representation of the bin definitions.
+    * Run "mongoimport --db ss-collection --collection bin_defs --file json_bins.txt"
+    * If the above command worked, you should have many bins in your mongodb.
+
 
 Now you're ready to help out!
 
