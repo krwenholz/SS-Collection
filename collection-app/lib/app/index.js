@@ -6,6 +6,12 @@ var derby = require('derby')
 
 derby.use(require('../../ui'))
 
+// HELPER FUNCTIONS //
+
+view.fn('underToSpace', function(value){
+    return value && value.replace(/_/g, ' ');
+});
+
 // ROUTES //
 
 // Derby routes can be rendered on the client and the server
