@@ -25,11 +25,11 @@ module.exports = function(store) {
     });
 
     store.query.expose('bins', 'forLocation', function(loc) {
-        return this.where('Location').equals(loc);
+        return this.where('Location').equals(loc);//.except('Hist');
     });
 
-    store.query.expose('bins', 'recAndDesc', function(){
-        return this.only('Description');
+    store.query.expose('bins', 'noHist', function(){
+        return this.except('Hist');
     });
 
     //Returns bins where the most recent activity == full

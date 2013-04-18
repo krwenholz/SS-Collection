@@ -117,10 +117,11 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         model.query('bin_defs').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName);
 
-    // TODO: Subscription isn't working.  This sucks.
+    // TODO: Subscription isn't working.  This sucks, and we don't want to grab
+    // the activity data.
     var binQuery = 
         model.query('bins').forBuilding(buildName).forFloor(floorName)
-            .forLocation(locName);//.recAndDesc();
+            .forLocation(locName).noHist();
 
     model.fetch(locationQuery, function(err, locDef) {
         // Here comes the magic for our persistence and data sharing
@@ -128,6 +129,7 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         model.subscribe(binQuery, function(err, curBins){
             // Need underscore to keep it private for ref
         	model.ref('_bins', curBins);
+            console.log("RESULTS OF THE CUR_BINS QUERY:");
             console.log(curBins.get());
         	
             // Grab the bin names and initialize the bin in the db
