@@ -34,15 +34,16 @@ module.exports = function(store) {
 
     //Returns bins where the most recent activity == full
     //Assumes the new fully-qualified structure for bins, which doesn't exist yet (commenting out for now)
-    /*store.query.expose('bins', 'onlyFull', function(){
-        return this.where('data.recent.activity').equals('full');
-    });*/
+    store.query.expose('bins', 'onlyFull', function(){
+        return this.where('Recent.activity').equals('full');
+    });
 
     //Returns bins where the most recent activity time is less than or equal to the number of specified days ago
     //Assumes the new fully-qualified structure for bins, which doesn't exist yet (commenting out for now)
-    /*store.query.expose('bins', 'olderThan', function(numDays){
+    store.query.expose('bins', 'olderThan', function(numDays){
         var day = 24 * 3600 * 1000;
-        return this.where('data.recent.time').lte(new Date(new Date() - numDays * day));
-    });*/
+        return this.where('Recent.time').
+            lte(new Date(new Date() - numDays * day));
+    });
 };
 

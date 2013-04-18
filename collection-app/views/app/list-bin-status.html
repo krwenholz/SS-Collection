@@ -1,21 +1,25 @@
 <Body:>
     <div class="sixteen columns">
-      <h3>Bins last marked full</h3>
+      <h3>These bins were last marked full</h3>
       <ul>
-        {{#each fulls as :fBin}}
+        {{#each _allFull}}
           <li>
-            <a href="/buildings-{{:fBin.building}}/floor-{{:fBin.floor}}/location-{{:fBin.location}}">
-                {{:fBin.bin}} at {{:fBin.building}}/{{:fBin.floor}}/{{:fBin.location}}
+          <a href="/buildings-{{this.Building}}/floor-{{this.Floor}}/location-
+            {{this.Location}}">
+              {{this.Description}} at {{this.Building}}/
+              {{this.Floor}}/{{this.Location}}
             </a>
          </li>
         {{/each}}
       </ul>
-      <h3>Bins not checked in {{daysOld}}+ days</h3>
+      <h3>These bins have not been checked in {{daysOld}}+ days</h3>
       <ul>
-        {{#each lonelys as :lBin}} 
+        {{#each _allLonely}} 
           <li>
-            <a href="/buildings-{{:lBin.building}}/floor-{{:lBin.floor}}/location-{{:lBin.location}}">
-                {{:lBin.bin}} at {{:lBin.building}}/{{:lBin.floor}}/{{:lBin.location}}
+          <a href="/buildings-{{this.Building}}/floor-{{this.Floor}}/location-
+            {{this.Location}}">
+              {{this.Description}} at {{this.Building}}/
+              {{this.Floor}}/{{this.Location}}
             </a>
          </li>
         {{/each}}

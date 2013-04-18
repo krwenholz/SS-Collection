@@ -37,18 +37,19 @@ get('/buildings', function(page, model, params) {
     });
 })
 
-//A route for viewing bins which are currently full or haven't been checked in a while
-//Requires queries which require fully-qualified bins collection. Commenting out until this change is made
-/*get('bin-status', function(page, model, params){
-    fullBins = model.query('bins').onlyFull();
+//A route for viewing bins which are currently full or haven't been checked in 
+//a while
+get('/bin-status', function(page, model, params){
+    fullBins = model.query('bins').onlyFull().noHist();
     numDays = 2; //number of days that need to pass for data bin to be "old"
-    lonelyBins = model.query('bins').olderThan(numDays);
+    lonelyBins = model.query('bins').olderThan(numDays).noHist();
     model.subscribe(fullBins, lonelyBins, function(err, full, lonely){
-        allFull = full.get();
-        allLonely = lonely.get();
-        page.render('list-bin-status', {fulls: allFull, lonelys: allLonely, daysOld: numDays, page_name: 'Bins To Check'});
+        model.ref('_allLonely', lonely);
+        model.ref('_allFull', full);
+        page.render('list-bin-status', 
+            {daysOld: numDays, page_name: 'Bins To Check'});
     });
-});*/
+});
 
 // A route for the floors/locations in a building
 get('/buildings-:building?', function(page, model, params) {
@@ -117,8 +118,7 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         model.query('bin_defs').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName);
 
-    // TODO: Subscription isn't working.  This sucks, and we don't want to grab
-    // the activity data.
+    // TODO: Subscription isn't working.  This sucks.
     var binQuery = 
         model.query('bins').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName).noHist();
@@ -129,8 +129,8 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
         model.subscribe(binQuery, function(err, curBins){
             // Need underscore to keep it private for ref
         	model.ref('_bins', curBins);
-            console.log("RESULTS OF THE CUR_BINS QUERY:");
-            console.log(curBins.get());
+            //console.log("RESULTS OF THE CUR_BINS QUERY:");
+            //console.log(curBins.get());
         	
             // Grab the bin names and initialize the bin in the db
             var binNames = locDef.get().map(function(bin) {
