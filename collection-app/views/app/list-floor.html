@@ -1,13 +1,13 @@
 <Body:>
     <div class="sixteen columns">
-      <h3>{buildingName}</h3>
+      <h3>{{underToSpace(buildingName)}}</h3>
       <ul>
         {#each locsAndFs as :floor}
-        <li>{{this.floorName}}
+        <li>{{underToSpace(this.floorName)}}
           <ul>
             {#each this['locs']}
             <li><a href="buildings-{{buildingName}}/floor-{{:floor.floorName}}/location-{{this}}">
-              Bins in {{this}}</a></li>
+              Bins in {{underToSpace(this)}}</a></li>
             {/each}
           </ul>
         </li>

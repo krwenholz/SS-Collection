@@ -12,9 +12,9 @@ doing awesome "things". . . .
 * You can install all dependencies with 
     npm install
 * To set up the database (on an empty mongodb):
-    * Run "binparse.py locations.xlsx"
+    * Run `python binparse.py locations.xlsx`
     * The fresh file generated is a json representation of the bin definitions.
-    * Run "mongoimport --db ss-collection --collection bin_defs --file json_bins.txt"
+    * Run `mongoimport --db ss-collection --collection bin_defs --file json_bins.txt`
     * If the above command worked, you should have many bins in your mongodb.
 
 

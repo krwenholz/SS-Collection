@@ -6,6 +6,12 @@ var derby = require('derby')
 
 derby.use(require('../../ui'))
 
+// HELPER FUNCTIONS //
+
+view.fn('underToSpace', function(value){
+    return value && value.replace(/_/g, ' ');
+});
+
 // ROUTES //
 
 // Derby routes can be rendered on the client and the server
@@ -17,24 +23,17 @@ get('/', function(page, model, params) {
 get('/buildings', function(page, model, params) {
     var buildingNames = model.query('bin_defs').onlyBuildings();
     model.fetch(buildingNames, function(err, buildNames) {
-        allBuildings = buildNames.get();
-        bNames = Array();
+        var allBuildings = buildNames.get().sort();
+        var bNames = Array();
         for(var i=0; i<allBuildings.length; i++){
             if(bNames.indexOf(allBuildings[i].Building) < 0){
                 bNames.push(allBuildings[i].Building);
             }
         }
-        
-        // TODO: Why isn't this sorting it?!
-        bNames = bNames.sort(function(a, b) {
-            if (a.floorName < b.floorName)
-                 return -1;
-            if (a.floorName > b.floorName)
-                 return 1;
-            // a must be equal to b
-            return 0;
-        });
-        page.render('list-building', { buildings: bNames, page_name: 'Buildings'});
+
+        bNames.sort();
+        page.render('list-building', 
+            { buildings: bNames, page_name: 'Buildings'} );
     });
 })
 
