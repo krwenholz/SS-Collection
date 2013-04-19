@@ -73,7 +73,7 @@ def labelList( list, labels ):
     return {label: item for (item, label) in zip(list, labels)}
 
 def replaceChars( dirty ):
-    translate = { ' ':'_', '/':'-' }
+    translate = { ' ':'_', '/':'-' , '.':''}
     dirty = dirty.strip()
     clean = []
     for char in dirty:
