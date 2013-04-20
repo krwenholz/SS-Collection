@@ -37,20 +37,6 @@ get('/buildings', function(page, model, params) {
     });
 })
 
-//A route for viewing bins which are currently full or haven't been checked in 
-//a while
-get('/bin-status', function(page, model, params){
-    fullBins = model.query('bins').onlyFull().noHist();
-    numDays = 2; //number of days that need to pass for data bin to be "old"
-    lonelyBins = model.query('bins').olderThan(numDays).noHist();
-    model.subscribe(fullBins, lonelyBins, function(err, full, lonely){
-        model.ref('_allLonely', lonely);
-        model.ref('_allFull', full);
-        page.render('list-bin-status', 
-            {daysOld: numDays, page_name: 'Bins To Check'});
-    });
-});
-
 // A route for the floors/locations in a building
 get('/buildings-:building?', function(page, model, params) {
     var building = params.building;
@@ -114,12 +100,12 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
     var locName = params.loc;
     locName || (locName = 'null');
 
-    var locationQuery = 
+    locationQuery = 
         model.query('bin_defs').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName);
 
     // TODO: Subscription isn't working.  This sucks.
-    var binQuery = 
+    binQuery = 
         model.query('bins').forBuilding(buildName).forFloor(floorName)
             .forLocation(locName).noHist();
 
@@ -148,12 +134,25 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
                         { buildingName : buildName, 
                           floorName : floorName, 
                           locationName: locName,
-                          binNames: binNames, 
                           page_name: 'bins for '+buildName+' in '+floorName+' at '+
                             locName});
 	    })
     });
 })
+
+//A route for viewing bins which are currently full or haven't been checked in 
+//a while
+get('/bin-status', function(page, model, params){
+    fullBins = model.query('bins').onlyFull().noHist();
+    numDays = 2; //number of days that need to pass for data bin to be "old"
+    lonelyBins = model.query('bins').olderThan(numDays).noHist();
+    model.subscribe(fullBins, lonelyBins, function(err, full, lonely){
+        model.ref('_allFull', full);
+        model.ref('_allLonely', lonely);
+        page.render('list-bin-status', 
+            {daysOld: numDays, page_name: 'Bins To Check'});
+    });
+});
 
 
 // CONTROLLER FUNCTIONS //

@@ -4,10 +4,10 @@
         <ul>
         {#each _allFull}
           <li>
-          <a href="/buildings-{{this.Building}}/floor-{{this.Floor}}/location-{{this.Location}}">
-              {{this.Description}} at {{this.Building}}/
-              {{this.Floor}}/{{this.Location}}
-          </a>
+            <a href="/buildings-{{this.Building}}/floor-{{this.Floor}}/location-{{this.Location}}">
+              {{underToSpace(this.Description)}} at {{underToSpace(this.Building)}}/
+              {{underToSpace(this.Floor)}}/{{underToSpace(this.Location)}}
+            </a>
           </li>
         {/each}
         </ul>
@@ -15,11 +15,11 @@
       <ul>
         {#each _allLonely} 
           <li>
-          <a href="/buildings-{{this.Building}}/floor-{{this.Floor}}/location-{{this.Location}}">
-              {{this.Description}} at {{this.Building}}/
-              {{this.Floor}}/{{this.Location}}
+            <a href="/buildings-{{this.Building}}/floor-{{this.Floor}}/location-{{this.Location}}">
+              {{underToSpace(this.Description)}} at {{underToSpace(this.Building)}}/
+              {{underToSpace(this.Floor)}}/{{underToSpace(this.Location)}}
             </a>
-         </li>
+          </li>
         {/each}
       </ul>
     </div>
