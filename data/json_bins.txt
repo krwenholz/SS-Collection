@@ -120,11 +120,11 @@
 {"Building": "Communications_2","Description": "Toter","Floor": "Outside","Location": "NW_Entrance"}
 {"Building": "Communications_2","Description": "Toter_2","Floor": "Outside","Location": "NW_Entrance"}
 {"Building": "Communications_2","Description": "Glass","Floor": "Outside","Location": "NW_Entrance"}
-{"Building": "C.I.A.C.","Description": "Toter","Floor": "Outside","Location": "N_Entrance"}
-{"Building": "C.I.A.C.","Description": "Glass","Floor": "Outside","Location": "N_Entrance"}
-{"Building": "Student_Div.","Description": "Toter","Floor": "Outside","Location": "N_Entrance"}
-{"Building": "Student_Div.","Description": "Toter","Floor": "Outside","Location": "N_Entrance"}
-{"Building": "Student_Dev.","Description": "Toter","Floor": "Outside","Location": "N_Entrance"}
+{"Building": "CIAC","Description": "Toter","Floor": "Outside","Location": "N_Entrance"}
+{"Building": "CIAC","Description": "Glass","Floor": "Outside","Location": "N_Entrance"}
+{"Building": "Student_Div","Description": "Toter","Floor": "Outside","Location": "N_Entrance"}
+{"Building": "Student_Div","Description": "Toter","Floor": "Outside","Location": "N_Entrance"}
+{"Building": "Student_Dev","Description": "Toter","Floor": "Outside","Location": "N_Entrance"}
 {"Building": "Security","Description": "Toter","Floor": "Outside","Location": "S_(back)_Entrance"}
 {"Building": "Security","Description": "Toter_2","Floor": "Outside","Location": "S_(back)_Entrance"}
 {"Building": "Security","Description": "Glass","Floor": "Outside","Location": "S_(back)_Entrance"}
@@ -200,8 +200,8 @@
 {"Building": "Greek_Inside","Description": "Glass","Floor": "1st_floor","Location": "Foyer"}
 {"Building": "Greek_Inside","Description": "Slim","Floor": "2nd_Floor","Location": "Landing"}
 {"Building": "Greek_Inside","Description": "Glass","Floor": "2nd_Floor","Location": "Landing"}
-{"Building": "Pres._Garage","Description": "Toter","Floor": "Inside","Location": "Landing"}
-{"Building": "Pres._Garage","Description": "Glass","Floor": "Inside","Location": "Landing"}
+{"Building": "Pres_Garage","Description": "Toter","Floor": "Inside","Location": "Landing"}
+{"Building": "Pres_Garage","Description": "Glass","Floor": "Inside","Location": "Landing"}
 {"Building": "Seward","Description": "Slim","Floor": "Basement","Location": "Center"}
 {"Building": "Seward","Description": "Glass","Floor": "Basement","Location": "Center"}
 {"Building": "Seward","Description": "Slim","Floor": "1st_Floor","Location": "Laundry"}
