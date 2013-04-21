@@ -12,6 +12,35 @@ view.fn('underToSpace', function(value){
     return value && value.replace(/_/g, ' ');
 });
 
+view.fn('threeColumns', function(items) {
+    var bins_in_col = Math.floor(items.length/3);
+    var buttons = items.map(function(ii) {
+        return "<a href=\"buildings-"+ii+"\" class=\"btn btn-large btn-info\" "+
+                "style=\"margin:0 15px 15px 0;\"> "+(ii && ii.replace(/_/g, ' '))+"</a>";
+    });
+    var divs = [[],[],[]];
+    for(ii in buttons) {
+        if (ii < bins_in_col) {
+            divs[0].push(buttons[ii]);
+        } else if (ii < bins_in_col * 2) {
+            divs[1].push(buttons[ii]);
+        } else {
+            divs[2].push(buttons[ii]);
+        }
+    }
+
+    return divs.reduce(function(out, b_list) {
+        return out + "<div class=\"five columns clearfix\">"+
+                    "<div class=\"buildbuttons\">"+
+                    b_list.reduce(function(out, button) 
+                        { return out + button + "</br>"; }, "</br>") +
+                    "</div>"+
+                    "</div>";
+    }, "");
+    //for(var i = 0; i < bins_in_col; i++) {
+    //}
+});
+
 // ROUTES //
 
 // Derby routes can be rendered on the client and the server
