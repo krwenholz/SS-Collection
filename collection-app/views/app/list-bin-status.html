@@ -2,14 +2,16 @@
     <div class="sixteen columns">
       <h3>Bins Last Marked Full</h3>
       {#each full as :curBuild}
-        <div class="seven columns binbuttons">   
+        <div class="fifteen columns binbuttons">   
           <p style="font-weight:bold;">{underToSpace(:curBuild.Building)}</p>
           {#each :curBuild['Floors'] as :floor}
-            <p style="font-style:italic;">{underToSpace(:floor.Floor)}</p>
-            <div class="button_group">
-              {#each :floor['Bins'] as :bin}
-                <a href="/buildings-{:bin.Building}/floor-{:bin.Floor}/location-{:bin.Location}" class="btn btn-block btn-info">{unescaped idToLocBinText(:bin.id)}</a>
-              {/each}
+            <div class="five columns">
+              <p style="font-style:italic;">{underToSpace(:floor.Floor)}</p>
+                <div class="button_group">
+                  {#each :floor['Bins'] as :bin}
+                    <a href="/buildings-{:bin.Building}/floor-{:bin.Floor}/location-{:bin.Location}" class="btn btn-block btn-info">{unescaped idToLocBinText(:bin.id)}</a>
+                  {/each}
+                </div>
             </div>
           {/each}
         </div>
@@ -17,14 +19,16 @@
       <h3 style="clear:both;">Bins Not Checked in {daysOld}+ Days</h3>
       <p>(Needs to be fixed)</p>
       {#each lonely as :curBuild}
-        <div class="seven columns binbuttons">   
+        <div class="fifteen columns binbuttons">   
           <p style="font-weight:bold;">{underToSpace(:curBuild.Building)}</p>
           {#each :curBuild['Floors'] as :floor}
-            <p style="font-style:italic;">{underToSpace(:floor.Floor)}</p>
-            <div class="button_group">
-              {#each :floor['Bins'] as :bin}
-                <a href="/buildings-{:bin.Building}/floor-{:bin.Floor}/location-{:bin.Location}" class="btn btn-block btn-info">{unescaped idToLocBinText(:bin.id)}</a>
-              {/each}
+            <div class="five columns">
+              <p style="font-style:italic;">{underToSpace(:floor.Floor)}</p>
+                <div class="button_group">
+                  {#each :floor['Bins'] as :bin}
+                    <a href="/buildings-{:bin.Building}/floor-{:bin.Floor}/location-{:bin.Location}" class="btn btn-block btn-info">{unescaped idToLocBinText(:bin.id)}</a>
+                  {/each}
+                </div>
             </div>
           {/each}
         </div>

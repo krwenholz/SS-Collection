@@ -34,14 +34,20 @@ module.exports = function(store) {
 
     //Returns bins where the most recent activity == full
     store.query.expose('bins', 'onlyFull', function(){
-        return this.where('Recent.activity').equals('full').sort('Building', 'asc', 'Floor','asc', 'Location', 'asc', 'Description', 'asc');
+        return this
+            .where('Recent.activity')
+            .equals('full')
+            .sort('Building', 'asc', 'Floor','asc', 'Location', 'asc', 'Description', 'asc');
     });
 
     //Returns bins where the most recent activity time is less than or equal to the number of specified days ago
     store.query.expose('bins', 'olderThan', function(numDays){
         var day = 24 * 3600 * 1000;
-        return this.where('Recent.time').
-            lte(new Date(new Date() - numDays * day)).sort('Building', 'asc', 'Floor','asc', 'Location', 'asc', 'Description', 'asc');
+        var daysAgo = new Date(new Date() - (numDays*day)).toISOString();
+        return this
+            .where('Recent.time')
+            .lte(daysAgo)
+            .sort('Building', 'asc', 'Floor','asc', 'Location', 'asc', 'Description', 'asc');
     });
 };
 
