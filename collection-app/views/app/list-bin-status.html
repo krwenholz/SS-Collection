@@ -1,25 +1,32 @@
 <Body:>
     <div class="sixteen columns">
-      <h3>These bins were last marked full</h3>
-        <ul>
-        {#each _allFull}
-          <li>
-            <a href="/buildings-{{this.Building}}/floor-{{this.Floor}}/location-{{this.Location}}">
-              {{underToSpace(this.Description)}} at {{underToSpace(this.Building)}}/
-              {{underToSpace(this.Floor)}}/{{underToSpace(this.Location)}}
-            </a>
-          </li>
-        {/each}
-        </ul>
-      <h3>These bins have not been checked in {{daysOld}}+ days</h3>
-      <ul>
-        {#each _allLonely} 
-          <li>
-            <a href="/buildings-{{this.Building}}/floor-{{this.Floor}}/location-{{this.Location}}">
-              {{underToSpace(this.Description)}} at {{underToSpace(this.Building)}}/
-              {{underToSpace(this.Floor)}}/{{underToSpace(this.Location)}}
-            </a>
-          </li>
-        {/each}
-      </ul>
+      <h3>Bins Last Marked Full</h3>
+      {#each full as :curBuild}
+        <div class="seven columns binbuttons">   
+          <p style="font-weight:bold;">{underToSpace(:curBuild.Building)}</p>
+          {#each :curBuild['Floors'] as :floor}
+            <p style="font-style:italic;">{underToSpace(:floor.Floor)}</p>
+            <div class="button_group">
+              {#each :floor['Bins'] as :bin}
+                <a href="/buildings-{:bin.Building}/floor-{:bin.Floor}/location-{:bin.Location}" class="btn btn-block btn-info">{unescaped idToLocBinText(:bin.id)}</a>
+              {/each}
+            </div>
+          {/each}
+        </div>
+      {/each}
+      <h3 style="clear:both;">Bins Not Checked in {daysOld}+ Days</h3>
+      <p>(Needs to be fixed)</p>
+      {#each lonely as :curBuild}
+        <div class="seven columns binbuttons">   
+          <p style="font-weight:bold;">{underToSpace(:curBuild.Building)}</p>
+          {#each :curBuild['Floors'] as :floor}
+            <p style="font-style:italic;">{underToSpace(:floor.Floor)}</p>
+            <div class="button_group">
+              {#each :floor['Bins'] as :bin}
+                <a href="/buildings-{:bin.Building}/floor-{:bin.Floor}/location-{:bin.Location}" class="btn btn-block btn-info">{unescaped idToLocBinText(:bin.id)}</a>
+              {/each}
+            </div>
+          {/each}
+        </div>
+      {/each}
     </div>

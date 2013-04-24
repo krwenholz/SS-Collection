@@ -12,6 +12,11 @@ view.fn('underToSpace', function(value){
     return value && value.replace(/_/g, ' ');
 });
 
+view.fn('idToLocBinText', function(value){
+    keys = value.split('#')
+    return keys[2].replace(/_/g, ' ') + '<br />' + keys[3].replace(/_/g, ' ');
+});
+
 view.fn('threeColumns', function(items) {
     var bins_in_col = Math.floor(items.length/3);
     var buttons = items.map(function(ii) {
@@ -37,9 +42,45 @@ view.fn('threeColumns', function(items) {
                     "</div>"+
                     "</div>";
     }, "");
-    //for(var i = 0; i < bins_in_col; i++) {
-    //}
 });
+
+//Breaks down a list of bins in a way which allows them to be grouped by building and floor
+//TODO: Rename the function to something that makes a bit more sense...
+var binBreakdown = function(bins){
+    uniqueBuilds = Array();
+    uniqueFloors = Array();
+    uniqueLocs = Array();
+    for(var i=0; i<bins.length; i++){
+        if(uniqueBuilds.indexOf(bins[i].Building) < 0){
+            uniqueBuilds.push(bins[i].Building);
+        }
+        if(uniqueFloors.indexOf(bins[i].Floor) < 0){
+            uniqueFloors.push(bins[i].Floor);
+        }
+        if(uniqueLocs.indexOf(bins[i].Location) < 0){
+            uniqueLocs.push(bins[i].Location);
+        }
+    }
+    data = [];
+    for(var i=0; i<uniqueBuilds.length; i++){
+        node = {}
+        node['Building'] = uniqueBuilds[i];
+        node['Floors'] = [];
+        for(var j=0; j<uniqueFloors.length; j++){
+            node2 = {}
+            fBins = bins.filter(function(bin){return (bin.Building == uniqueBuilds[i] && bin.Floor == uniqueFloors[j])});
+            if(fBins.length > 0){
+                //console.log(fBins);
+                //console.log(fBins.length);
+                node2['Floor'] = uniqueFloors[j];
+                node2['Bins'] = fBins;
+                node['Floors'].push(node2);
+            }
+        }
+        data.push(node);
+    }
+    return data;
+}
 
 // ROUTES //
 
@@ -176,10 +217,15 @@ get('/bin-status', function(page, model, params){
     numDays = 2; //number of days that need to pass for data bin to be "old"
     lonelyBins = model.query('bins').olderThan(numDays).noHist();
     model.subscribe(fullBins, lonelyBins, function(err, full, lonely){
-        model.ref('_allFull', full);
-        model.ref('_allLonely', lonely);
-        page.render('list-bin-status', 
-            {daysOld: numDays, page_name: 'Bins To Check'});
+        //model.ref('_allFull', full);
+        //model.ref('_allLonely', lonely);
+
+        fullBreakdown = binBreakdown(full.get());
+        lonelyBreakdown = binBreakdown(lonely.get());
+        //model.ref('_fullBins', fullBreakdown);
+
+    page.render('list-bin-status', 
+            {daysOld: numDays, full: fullBreakdown, lonely: lonelyBreakdown, page_name: 'Bins To Check'});
     });
 });
 
