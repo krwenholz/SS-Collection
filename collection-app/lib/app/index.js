@@ -8,15 +8,20 @@ derby.use(require('../../ui'))
 
 // HELPER FUNCTIONS //
 
+//Converts uderscores to spaces.
+//Called from within a view
 view.fn('underToSpace', function(value){
     return value && value.replace(/_/g, ' ');
 });
 
+//Parses the bin id field to generate markup with the bin's location & name.
+//Called from within a view
 view.fn('idToLocBinText', function(value){
     keys = value.split('#')
     return keys[2].replace(/_/g, ' ') + '<br />' + keys[3].replace(/_/g, ' ');
 });
 
+//Divides the list of buildings into 3 columns. Called from within a view
 view.fn('threeColumns', function(items) {
     var bins_in_col = Math.floor(items.length/3);
     var buttons = items.map(function(ii) {
@@ -210,26 +215,21 @@ get('/buildings-:building?/floor-:floor?/location-:loc?',
     });
 })
 
-//A route for viewing bins which are currently full or haven't been checked in 
-//a while
+//A route for viewing bins which are currently full or haven't been checked in a while
 get('/bin-status', function(page, model, params){
     fullBins = model.query('bins').onlyFull().noHist();
     numDays = 2; //number of days that need to pass for data bin to be "old"
     lonelyBins = model.query('bins').olderThan(numDays).noHist();
     model.subscribe(fullBins, lonelyBins, function(err, full, lonely){
-        //model.ref('_allFull', full);
-        //model.ref('_allLonely', lonely);
-
-        //fullBreakdown = binBreakdown(full.get());
-        //lonelyBreakdown = binBreakdown(lonely.get());
-
-        model.fn('_fullTest', full, function(full){
-            console.log('Full reactive function called!');
+        //Reactive function that is evaluated every time the results of the full bins query change.
+        //Parses bin data for use in the bin status view
+        model.fn('_full', full, function(full){
             return binBreakdown(full.slice());
         });
 
-        model.fn('_lonelyTest', lonely, function(lonely){
-            console.log('Lonely reactive function called!');
+        //Reactive function that is evaluated every time the results of the lonley bins query change.
+        //Parses bin data for use in the bin status view
+        model.fn('_lonely', lonely, function(lonely){
             return binBreakdown(lonely.slice());
         });
 
