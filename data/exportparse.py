@@ -6,9 +6,9 @@ def main():
     try:
         file = sys.argv[1]
     except:
-        print "Expoort Parse:"
-        print "Translates json data from mongo to an excel file."
-        print "usage:\texportparse.py [JSON_FILE]"
+        print 'Expoort Parse:'
+        print 'Translates json data from mongo to an excel file.'
+        print 'usage:\texportparse.py [JSON_FILE]'
         sys.exit(-1)
     
     jsonFile = open(file)
@@ -16,31 +16,26 @@ def main():
     jsonFile.close()
     
     parsed = json.loads(rawJson[0])
-    
-    data = {}
-    for building in parsed:
-        name = building['_id']
-        building.pop('_id',name)
-        data[name] = building
-    
-    activity = []
-    activity.append([u'Building',u'Floor',u'Location',u'Container', u'Activity',u'Time'])
-    for building in data.keys():
-        for floor in data[building].keys():
-            for location in data[building][floor].keys():
-                for container in data[building][floor][location].keys():
-                    for datum in data[building][floor][location][container]['hist']:
-                        row = [building,floor,location,container,datum['activity'],datum['time']]
-                        row = [clean(item) for item in row]
-                        activity.append(row)
-                
-                
+
+    data = [(u'Building',u'Floor',u'Location',u'Description', u'Action',u'Time')]
+    for bin in parsed:
+        building = bin['Building']
+        floor = bin['Floor']
+        location = bin['Location']
+        description = bin['Description']
+        activity = bin['Hist']
+        for datum in activity:
+            time = datum['time']
+            action = datum['activity']
+            data.append((building,floor,location,description,action,time))
+            
     workbook = xlwt.Workbook(encoding = 'ascii')
     worksheet = workbook.add_sheet('Activity')
-    for row in idx(activity):
-        for column in idx(activity[row]):
-            worksheet.write(row, column, label=activity[row][column])
-
+    for row in idx(data):
+        for column in idx(data[row]):
+            string = clean(data[row][column])
+            worksheet.write(row, column, label=string)
+    
     workbook.save('activity.xls')
     
     # print pretty(parsed)
@@ -58,7 +53,7 @@ def idx( iterable ):
                     
 def show( list ):
     for item in list:
-        print item
+        print len(item), item
     
 def pretty( data ):
     return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
@@ -66,5 +61,5 @@ def pretty( data ):
 
     
         
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
