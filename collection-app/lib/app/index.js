@@ -220,12 +220,21 @@ get('/bin-status', function(page, model, params){
         //model.ref('_allFull', full);
         //model.ref('_allLonely', lonely);
 
-        fullBreakdown = binBreakdown(full.get());
-        lonelyBreakdown = binBreakdown(lonely.get());
-        //model.ref('_fullBins', fullBreakdown);
+        //fullBreakdown = binBreakdown(full.get());
+        //lonelyBreakdown = binBreakdown(lonely.get());
+
+        model.fn('_fullTest', full, function(full){
+            console.log('Full reactive function called!');
+            return binBreakdown(full.slice());
+        });
+
+        model.fn('_lonelyTest', lonely, function(lonely){
+            console.log('Lonely reactive function called!');
+            return binBreakdown(lonely.slice());
+        });
 
     page.render('list-bin-status', 
-            {daysOld: numDays, full: fullBreakdown, lonely: lonelyBreakdown, page_name: 'Bins To Check'});
+            {daysOld: numDays, page_name: 'Bins To Check'});
     });
 });
 

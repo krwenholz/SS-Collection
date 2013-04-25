@@ -1,7 +1,7 @@
 <Body:>
     <div class="sixteen columns">
       <h3>Bins Last Marked Full</h3>
-      {#each full as :curBuild}
+      {#each _fullTest as :curBuild}
         <div class="fifteen columns binbuttons">   
           <p style="font-weight:bold;">{underToSpace(:curBuild.Building)}</p>
           {#each :curBuild['Floors'] as :floor}
@@ -17,7 +17,7 @@
         </div>
       {/each}
       <h3 style="clear:both;">Bins Not Checked in {daysOld}+ Days</h3>
-      {#each lonely as :curBuild}
+      {#each _lonelyTest as :curBuild}
         <div class="fifteen columns binbuttons">   
           <p style="font-weight:bold;">{underToSpace(:curBuild.Building)}</p>
           {#each :curBuild['Floors'] as :floor}
