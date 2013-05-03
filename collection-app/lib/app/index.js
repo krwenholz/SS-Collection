@@ -94,6 +94,11 @@ get('/', function(page, model, params) {
   page.render('home', {page_name: 'Get Started'})
 })
 
+//A route for the 'About this App' view
+get('/about', function(page, model, params){
+  page.render('about', {page_name: 'About the App'});
+});
+
 // A route for the building select view
 get('/buildings', function(page, model, params) {
     var buildingNames = model.query('bin_defs').onlyBuildings();
