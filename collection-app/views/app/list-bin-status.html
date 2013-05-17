@@ -1,6 +1,6 @@
 <Body:>
     <div class="sixteen columns">
-      <h3>Bins Last Marked Full</h3>
+      <h3 data-intro="Bins last marked full, but not emptied. Click button to update a bin's status." data-position="bottom">Bins Last Marked Full</h3>
       {#each _full as :curBuild}
         <div class="fifteen columns binbuttons">   
           <p style="font-weight:bold;">{underToSpace(:curBuild.Building)}</p>
@@ -16,7 +16,7 @@
           {/each}
         </div>
       {/each}
-      <h3 style="clear:both;">Bins Not Checked in {daysOld}+ Days</h3>
+      <h3 style="clear:both;" data-intro="Bins last checked {daysOld} or more days ago. Click button to update a bin's status." data-position="bottom">Bins Not Checked in {daysOld}+ Days</h3>
       {#each _lonely as :curBuild}
         <div class="fifteen columns binbuttons">   
           <p style="font-weight:bold;">{underToSpace(:curBuild.Building)}</p>

@@ -1,6 +1,6 @@
 <Body:>
     <div class="sixteen columns">
-      <h3>{{underToSpace(buildingName)}}</h3>
+      <h3 data-intro="A list of floors and locations for this building which have bins to track." data-position="bottom">{{underToSpace(buildingName)}}</h3>
       <ul>
         {#each locsAndFs as :floor}
         <li>{{underToSpace(this.floorName)}}

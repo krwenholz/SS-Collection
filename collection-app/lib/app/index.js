@@ -87,23 +87,12 @@ var binBreakdown = function(bins){
     return data;
 }
 
-//Initialize jQuery UI tooltips when the about view is rendered.
-//Normally done with jQuery on page load, but this doesn't fit with the way Derby loads pages/views
-app.on('render:about', function(ctx) {
-  $("[data-toggle=tooltip]").tooltip("show");
-});
-
 // ROUTES //
 
 // Derby routes can be rendered on the client and the server
 get('/', function(page, model, params) {
   page.render('home', {page_name: 'Get Started'})
 })
-
-//A route for the 'About this App' view
-get('/about', function(page, model, params){
-  page.render('about', {page_name: 'Using this App'});
-});
 
 // A route for the building select view
 get('/buildings', function(page, model, params) {
